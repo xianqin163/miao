@@ -79,10 +79,12 @@
     <dl>
         <dt>班级</dt>
         <dd>三年二班</dd>
+        
         <dt>老师</dt>
         <dd>张老师</dd>
         <dd>mis李</dd>
         <dd>王sir</dd>
+        
         <dt>学生</dt>
         <dd>多多</dd>
         <dd>豆豆</dd>
@@ -91,7 +93,8 @@
     <h3>Google搜索</h3>
     <form action="https://cn.bing.com/search" target="_blank">
         <input type="search" autocomplete="off">
-        <button>在新窗口打开搜索结果</button>
+        
+        <button>在新窗口打开搜索结果</button> 
     </form>
     <br>
     <hr>
@@ -121,13 +124,29 @@
             </select>
         </dd>
         <dt>生日：</dt>
-        <dd>
+        <dd> 
             <input type="date" name="birthday" id="">
         </dd>
         <dt>生辰：</dt>
-        <dd><input type="time" name="" id=""></dd>
+        <dd>
+            <input type="time" name="" id="">
+        </dd>
+        <dt>年龄</dt>
+        <dd><input type="number" max="100" min="0" step="1"></dd>
+        <dt>范围range（进度条）</dt>
+        <dd>
+            <input type="range" max="100" min="0" step="10" value="80">
+        </dd>
+        <dt>邮件</dt>
+        <dd>
+            <input type="mail" multiple>
+        </dd>
+        <dt>文件</dt>
+        <dd>
+            <input type="file" accept="text/*,image/jpeg">
+        </dd>
         <dt>照片：</dt>
-        <dd><input type="image" src="" alt=""></dd>
+        <dd><input type="image" src="" alt="image input"></dd>
         <dt>肤色：</dt>
         <dd><input type="color"></dd>
         <dt>自我介绍：</dt>
@@ -148,10 +167,12 @@
     </form>
     <input type="submit" value="提交">
     <button type="reset">重置</button>
-
+    <br><br>
 
     <!-- 4月27日 -->
     <table border="1">
+        <caption>学生信息</caption>
+        <col bgcolor="#556FFF">
         <thead>
             <tr>
                 <th>学号</th>
@@ -160,6 +181,8 @@
                 <th>年龄</th>
             </tr>
         </thead>
+        <col style="background-color: aquamarine
+        ;">
         <tbody>
             <tr>
                 <th>01</th>
@@ -186,6 +209,7 @@
             </tr>
         </tfoot>
     </table>
+    <br><br>
 
     <table border="1" >
         <tr>
@@ -200,8 +224,23 @@
             <td colspan="2">字字</td>
         </tr> 
     </table>
-    <a href="#footer" id="footer">
-        底部
-    </a>
+
+
+    <img usemap="#world" src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3119313b07eca80e978d919972397dda04483cb.jpg" alt="" width="800" >
+    <map name="world">
+        <area shape="rect" coords="360 0 100 580" href="" alt="America" title="美洲">
+        
+        <!-- <area shape="poly" coords="" href="" alt="Asia" title="亚洲">
+        <area shape="poly" coords="" href="" alt="Europe" title="欧洲">
+        <area shape="poly" coords="" href="" alt="Africa" title="非洲"> -->
+
+        <area shape="circle" coords="600 250 80" href="" alt="Oceania" title="大洋洲">
+    </map>
+
+    <br><br>
+    <a href="#footer" id="footer">底部</a>
+    <br><br>
+
+    <iframe src="https://www.baidu.com/" frameborder="1"></iframe>
 </body>
 </html>
