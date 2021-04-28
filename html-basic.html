@@ -14,9 +14,9 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit iste eos ipsum adipisci labore dicta inventore esse! Dolore voluptatibus placeat ipsa impedit laboriosam reprehenderit soluta, veritatis veniam neque facere optio!</p>
 
     <a href="https://jd.com/" target="_blank">在新窗口打开京东</a>
-    <a href="email" >点我发邮件</a>
+    <a href="mailto:pony@qq.com" >点我发邮件</a>
     <a href="#footer" >跳到页面底部</a>
-    <a href="file">点我下载文件</a>
+    <a href="*.pdf" download="">点我下载文件</a>
     <br>
 
     <img src="https://drscdn.500px.org/photo/229389427/m%3D1170/v2?user_id=7012987&webp=true&sig=196fa0c161aa562478d08571764872f7d69a346c3c0b2e12aa00e2c6414eb28b" alt="grape" title="葡萄" width="200" height="200">
@@ -29,20 +29,23 @@
 
     <marquee>飘~~~~</marquee>
 
-    <em>这几种强调</em>
-    <strong>有什么区别呢？</strong>
-    <u>这个呢？</u>
-    <i>这个呢？</i>
-    <br>
-    &lt;!-- 这段注释出现在页面里面 --&gt;    
+    <div>
+        <em>这几种强调</em>
+        <b>有什么</b>
+        <strong>区别呢？</strong>
+        <u>这个呢？</u>
+        <i>这个呢？</i>
+        <ins>这个呢？</ins>
+    </div>
+    <div>
+        &lt;!-- 这段注释出现在页面里面 --&gt;   
+    </div> 
     <p>下面一段JavaScript代码，最适合用哪种标签表示？</p>
-    <pre>
-        <code>
-            function a(){
-                return 8
-            }
-        </code>
-    </pre>
+    <pre><code>
+function a(){
+    return 8
+}
+    </code></pre>
 
     <select>
         <option value="self" hidden>请选择</option>
@@ -89,37 +92,58 @@
         <dd>多多</dd>
         <dd>豆豆</dd>
     </dl>
+
     <hr>
+
     <h3>Google搜索</h3>
     <form action="https://cn.bing.com/search" target="_blank">
-        <input type="search" autocomplete="off">
-        
-        <button>在新窗口打开搜索结果</button> 
+        <input type="search" name="q" autocomplete="off">
+        <button>在新窗口打开必应搜索结果</button> 
     </form>
+    <form action="https://www.baidu.com/s" target="_blank">
+        <input type="search" name="wd" autocomplete="off">
+        <button>在新窗口打开百度搜索结果</button> 
+    </form>
+    <form action="https://www.google.com/search" target="_blank">
+        <input type="search" name="q" autocomplete="off">
+        <button>在新窗口打开谷歌搜索结果</button> 
+    </form>
+
     <br>
+
     <hr>
+<form action="">
     <dl>
         <dt>个人信息调查表</dt>
         <br>
         <dt>性别:</dt>
         <dd>
-            <input type="radio" name="sex" value="male">男
-            <input type="radio" name="sex" value="female">女
+            <label><input type="radio" name="sex" value="male">男</label>
+            <label><input type="radio" name="sex" value="female">女</label>
+        </dd>
+        <dt>爱好</dt>
+        <dd>
+            <label><input type="checkbox" name="hobby" checked>香蕉</label>
+            <label><input type="checkbox" name="hobby">苹果</label>
+            <label><input type="checkbox" name="hobby">柚子</label>
+            <label><input type="checkbox" name="hobby">西瓜</label>
+
         </dd>
         <dt>年龄：</dt>
         <dd>
-            <select>
+            <select name="age">
+                <option value="" hidden>请选择</option>
                 <optgroup label="少年">
-                    <option>1到6岁</option>
-                    <option value="">6到12岁</option>
+                    <option value="1-6">1到6岁</option>
+                    <option value="7-12">7到12岁</option>
                 </optgroup>
                 <optgroup label="青年">
-                    <option value="">13到15岁</option>
-                    <option value="">16到18岁</option>
+                    <option value="13-15">13到15岁</option>
+                    <option value="16-18">16到18岁</option>
                 </optgroup>
                 <optgroup label="壮年">
-                    <option value="">18到35岁</option>
-                    <option value="">36到50岁</option>
+                    <option value="18~35">18到35岁</option>
+                    <option value="36~50">36到50岁</option>
                 </optgroup>
             </select>
         </dd>
@@ -129,7 +153,7 @@
         </dd>
         <dt>生辰：</dt>
         <dd>
-            <input type="time" name="" id="">
+            <input type="time" name="born" id="">
         </dd>
         <dt>年龄</dt>
         <dd><input type="number" max="100" min="0" step="1"></dd>
@@ -147,22 +171,29 @@
         </dd>
         <dt>照片：</dt>
         <dd><input type="image" src="" alt="image input"></dd>
+        <dt>照片：</dt>
+        <dd>
+            <label for="">
+                <input type="file" hidden name="picture">
+                点我上传照片，我比文件上传按钮好看
+            </label>
+        </dd>
         <dt>肤色：</dt>
         <dd><input type="color"></dd>
         <dt>自我介绍：</dt>
         <dd>
-            <textarea rows="10" cols="30">
-                &lt;/textarea&gt;
-            </textarea>
+            <textarea name="intro" rows="10" cols="30">&lt;/textarea&gt;</textarea>
         </dd>
     </dl>
+</form>
+
     <br><br>
     <form action="">
-        <fieldset>
-            <legend>这面全都禁用了</legend>
-            <input type="text" disabled>
-            <input type="text" disabled>
-            <input type="text" disabled>
+        <fieldset disabled>
+        <legend>这面全都禁用了</legend>
+            <input type="text">
+            <input type="text">
+            <input type="text">
         </fieldset>
     </form>
     <input type="submit" value="提交">
@@ -173,6 +204,10 @@
     <table border="1">
         <caption>学生信息</caption>
         <col bgcolor="#556FFF">
+        <col>
+        <col>
+        <col style="background-color: aquamarine
+        ;">
         <thead>
             <tr>
                 <th>学号</th>
@@ -181,8 +216,6 @@
                 <th>年龄</th>
             </tr>
         </thead>
-        <col style="background-color: aquamarine
-        ;">
         <tbody>
             <tr>
                 <th>01</th>
@@ -237,10 +270,20 @@
         <area shape="circle" coords="600 250 80" href="" alt="Oceania" title="大洋洲">
     </map>
 
-    <br><br>
-    <a href="#footer" id="footer">底部</a>
-    <br><br>
+    <div>
+        <a href="#footer" id="footer">底部</a>
+    </div>
+    <hr>
+    <!-- 点击文字“小米”链接，在iframe里面打开小米官网。小米拒绝显示在其他网页的iframe里，但是可以显示在自己网站的iframe里 -->
+    <a href="https://www.mi.com" target="iframe1">小米</a>
+    <div>
+        <iframe name="iframe1" src="https://nodejs.org/en/" frameborder="1"></iframe>
+    </div>
 
-    <iframe src="https://www.baidu.com/" frameborder="1"></iframe>
+    <p>aiaiai&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bibibibi</p>
+
+    <pre>aiaiai      bibibibi</pre>
+
+>>>>>>>><<<<<<<<><><><span&gt;>&lt;span>&lt;/span>
 </body>
 </html>
