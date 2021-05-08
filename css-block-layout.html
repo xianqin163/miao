@@ -11,6 +11,11 @@
             background-color: black;
             color: white;
         }
+        .nav div {
+            /* background-color: #9c0d0d; */
+            text-align: right;
+            margin-top: -22px;
+        }
         .nav,.main {
             width: 600px;
             margin: auto;
@@ -18,14 +23,32 @@
         .main {
             margin: 20px auto;
         }
-        .nav span {
-            background-color: #9c0d0d;
-            display: inline-block;
-            margin-left: 20%;
+
+        section {
+            margin: auto;
+        }
+        section div {
+            background-color: pink;
+            width: 180px;
+            height: 34px;
+            border:3px solid;
+            margin-top: 15px;
+            text-align: center;
+            /* 行高———垂直居中 */
+            line-height: 34px;
+        }
+        section div:nth-child(n+5) {
+            margin-left: 210px;
+        }
+        section div:nth-child(n+9) {
+            margin-left: 420px;
+        }
+        section div:nth-child(4n+5) {
+            margin-top: -205px;
         }
         [class*=link0] {
             background-color: ;
-            border-bottom: 2px dotted rgb(189, 87, 150) ;
+            border-bottom: 1px dotted ;
         }
         [class^=link] {
             margin: 0;
@@ -43,13 +66,26 @@
 </head>
 <body>
     <nav>
-        <div class="nav">Hello world!  <span>请调整浏览器窗口大小查看效果</span></div>
+        <div class="nav">Hello world! <div>请调整浏览器窗口大小查看效果</div></div>
     </nav>
     
     <div class="main">
         <p class="section">页面主体 宽度600px 水平居中。 页面中的所有元素都可以看作一个盒子，并占据一定空间。盒子模型由四个属性组成：content（内容）padding（内填充）border（边框）margin（外边距）。</p>
 
-        <div class="cell"></div>
+        <section>
+            <div>宽180高40(包含边框)</div>
+            <div>水平间隙30px</div>
+            <div>垂直间隙15px</div>
+            <div>边框宽度3px</div>
+            <div>产品</div>
+            <div>产品</div>
+            <div>产品</div>
+            <div>产品</div>
+            <div>产品</div>
+            <div>产品</div>
+            <div>产品</div>
+            <div>产品</div>
+        </section>
         <div class="ink">
             <p class="link01">link</p>
             <p class="link02">link</p>
