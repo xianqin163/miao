@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homework</title>
     <style>
-        * { margin: 0; }
+        * { margin: 0;}
         nav{
             background-color: black;
             color: white;
@@ -65,6 +65,30 @@
         .ink {
             margin: 20px auto;
         }
+
+        .sec {
+            width: 600px;
+            margin: auto;
+            /* word-spacing: -0.298em; //消除每个span之间的空隙，除了删除<span>标签之间的换行空格，还能通过设置负的单词间隔,比如word-spacing:-1ch;来消除一个空格，还可以通过给.sec设置font-size:0;给span设置还原font-size:16px;实现*/
+        }
+        .sec span {
+            box-sizing: border-box;
+            width: 180px;
+            height: 40px;
+            line-height: 34px;
+            background-color: pink;
+            border:3px solid;
+            text-align: center;
+            display: inline-block;
+            /* vertical-align: top; */
+            margin-top: 15px;
+        }
+        .sec span:nth-child(3n+1) {
+            margin-right: 30px;
+        }
+        .sec span:nth-child(3n+2) {
+            margin-right: 30px;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +120,9 @@
             <p class="link04">link</p>
             <p class="link">link</p>
         </div>
-        
+        <div class="sec">
+            <span>宽180高40(包含边框)</span><span>水平间隙30px</span><span>垂直间隙15px</span><span>边框宽度3px</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span>
+        </div>
         
     </div>
     <div class="foot">&copy;版权所有<br>本页所有布局均使用块元素</div>
