@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oald-position</title>
+    <style>
+        * {margin: 0;font-size: 30px;}
+        .body {
+            position: relative;
+            width: 100vw;
+        }
+        h2 {padding-left: 25px;}
+        .d1 {
+            width: 300px;
+            background-color: #EAEFF3;
+            box-sizing: border-box;
+            border-right: 2px solid black;
+            height: 100vh;
+        }
+        .d2 {
+            box-sizing: border-box;
+            border-right: 2px inset black;
+            position: absolute;
+            left: 300px;
+            top: 0;
+            width: calc(100vw - 900px);
+            height: 100vh;
+
+        }
+        .d2aa {
+            height: 100px;
+            box-sizing: border-box;
+            border-bottom: 2px dashed gray;
+        }
+        .d2bb {
+            overflow-y: scroll;
+            height: calc(100vh - 100px);
+            padding-left: 15px;
+        }
+        
+        .d3 {
+            width: 300px;
+            background-color: #EAEFF3;
+            box-sizing: border-box;
+            border-right: 2px solid black;
+            position: absolute;
+            right:300px;
+            top: 0;
+            height: 100vh;
+        }
+        .d4 {
+            width: 300px;
+            background-color: #EAEFF3;
+            position: absolute;
+            right:0;
+            top: 0;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="d1">
+            <h2>OALD 7</h2>
+            <ul>Table of contents
+                <li>Lorem.</li>
+                <li>Illo.</li>
+                <li>Pariatur!</li>
+                <li>Esse!</li>
+                <li>Illum!</li>
+                <li>Ipsa!</li>
+                <li>Rem.</li>
+                <li>Quisquam?</li>
+                <li>Eveniet!</li>
+                <li>Syntax</li>
+                <li>Interpolation</li>
+                <li>Examples</li>
+                <li>Specifications</li>
+                <li>Browser compatibility</li>
+                <li>See also</li>
+            </ul>
+        </div>
+        <div class="d2">
+            
+            <div class="d2aa">
+                <h2>position</h2>
+            </div>
+            <div class="d2bb">
+                The &lt;position> (or &lt;bg-position>) CSS data type denotes a two-dimensional coordinate used to set a location relative to an element box. It is used in the background-position and offset-anchor properties.<br><br>
+                The &lt;position> data type is specified with one or two keywords, with optional offsets.
+                <br><br>
+                The keyword values are center, top, right, bottom, and left. Each keyword represents either anedge of the element's box or the center line between two edges. Depending on the context, centerrepresents either the center between the left and right edges, or the center between the top andbottom edges.
+                <br><br>
+                If specified, an offset can be either a relative &lt;percentage> value or an absolute &lt;length>value. Positive values are offset towards the right or the bottom, whichever is appropriate.Negative values are offset in the opposite directions.
+                <br><br>
+                If only a single offset value is specified, it defines the x-coordinate, with the value for theother axis defaulting to center.<br>
+                <br><br>
+                When animated, a point's abscissa and ordinate values are interpolated independently. However, because the speed of the interpolation is determined by a single timing function for both coordinates, the point will move in a straight line.<br>
+            </div>
+        </div>
+        <div class="d3">
+            <h2>vocabulary</h2>
+        </div>
+        <div class="d4">
+            <h2>history</h2>
+        </div>
+    </div>
+
+</body>
+</html>
