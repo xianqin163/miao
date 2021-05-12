@@ -6,59 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mail-position</title>
     <style>
-        * {margin: 0;}
-        .logo{
-            height: 80px;
-            line-height: 80px;
-            background-color: #95e1d3;
-            box-sizing: border-box;
-            border-bottom: 1px solid black;
+        body {margin: 0;}
+        body,html,.position {
+            height: 100%;
         }
-        .logo h2{
-            padding-left: 20px;
-        }
-        .mainMenu {
-            width: 200px;
-            height: calc(100vh - 80px);
-            background-color: #eaffd0;
-            box-sizing: border-box;
-            border-right: 1px solid black;
+        .position {
             position: relative;
         }
-        .side {
-            padding: 20px;
+        .logo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: #95e1d3;
         }
-        .mainContent {
-            background-color: #fce38a;
+        .mainMenu {
             position: absolute;
             top: 80px;
-            left: 200px;
-            width: calc(99.9vw - 200px);
-            height: calc(100vh - 80px);
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            background-color: #eaffd0;
         }
-    .content p{
-        margin: 20px;
-    }
+        .mainContent {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            bottom: 0;
+            left: 200px;
+            background-color: #fce38a;
+        }
     </style>
 </head>
 <body>
-    <div class="logo">
-        <h2>Mail——QQ邮箱——mail.qq.com</h2>
-    </div>
-    <div class="mainMenu">
-        <div class="side">
-            <ul>
-                <li>写信</li>
-                <li>收信</li>
-                <li>通讯录</li>
-            </ul>
+    <div class="position">
+        <div class="logo">
+            <h2>Mail——QQ邮箱——mail.qq.com</h2>
         </div>
-    </div>
-    <div class="mainContent">
-        <div class="content">
-            <p>邮箱推荐</p>
-        <p>上午好，XXX。<br>
-            邮件：X封未读邮件，X封未读邮件，X封未读邮件，X封未读邮件</p>
+        <div class="mainMenu">
+            <div class="side">
+                <ul>
+                    <li>写信</li>
+                    <li>收信</li>
+                    <li>通讯录</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mainContent">
+            <div class="content">
+                <p>邮箱推荐</p>
+            <p>上午好，XXX。<br>
+                邮件：X封未读邮件，X封未读邮件，X封未读邮件，X封未读邮件</p>
+            </div>
         </div>
     </div>
 </body>
