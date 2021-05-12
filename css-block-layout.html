@@ -22,6 +22,7 @@
         }
         .main {
             margin: 20px auto;
+            /* background-color: khaki; */
         }
 
         section {
@@ -80,7 +81,6 @@
             border:3px solid;
             text-align: center;
             display: inline-block;
-            /* vertical-align: top; */
             margin-top: 15px;
         }
         .sec span:nth-child(3n+1) {
@@ -89,14 +89,39 @@
         .sec span:nth-child(3n+2) {
             margin-right: 30px;
         }
+
+        .inb{
+            width: 630px;
+            margin-left: -15px;
+            margin-right: -15px;
+            overflow: hidden;
+        }
+        .inb span {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 180px;
+            height: 40px;
+            background-color: pink;
+            border: 3px inset gray;
+            margin: 0 15px 15px 15px;
+            text-align: center;
+            line-height: 34px;
+        }
     </style>
 </head>
 <body>
+    
     <nav>
         <div class="nav">Hello world! <div>请调整浏览器窗口大小查看效果</div></div>
     </nav>
+
     
+
     <div class="main">
+        <div class="inb">
+            <span>宽180高40(包含边框)</span><span>水平间隙30px</span><span>垂直间隙15px</span><span>边框宽度3px</span><span>最优版</span><span>inline-block布局</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span>
+        </div>
+
         <p class="section">页面主体 宽度600px 水平居中。 页面中的所有元素都可以看作一个盒子，并占据一定空间。盒子模型由四个属性组成：content（内容）padding（内填充）border（边框）margin（外边距）。</p>
 
         <section>
@@ -104,7 +129,7 @@
             <div>水平间隙30px</div>
             <div>垂直间隙15px</div>
             <div>边框宽度3px</div>
-            <div>产品</div>
+            <div>最初版</div>
             <div>产品</div>
             <div>产品</div>
             <div>产品</div>
@@ -121,7 +146,7 @@
             <p class="link">link</p>
         </div>
         <div class="sec">
-            <span>宽180高40(包含边框)</span><span>水平间隙30px</span><span>垂直间隙15px</span><span>边框宽度3px</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span>
+            <span>宽180高40(包含边框)</span><span>水平间隙30px</span><span>垂直间隙15px</span><span>边框宽度3px</span><span>第二版作业</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span>
         </div>
         
     </div>
