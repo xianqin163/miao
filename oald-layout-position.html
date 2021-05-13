@@ -4,59 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oald-position</title>
+    <title>Document</title>
     <style>
-        * {margin: 0;font-size: 30px;}
+        body{
+            margin: 0;
+            font-size: 30px;
+        }
         .body {
             position: relative;
             width: 100vw;
-        }
-        h2 {padding-left: 25px;}
-        .d1 {
-            width: 300px;
-            background-color: #EAEFF3;
-            box-sizing: border-box;
-            border-right: 2px solid black;
             height: 100vh;
+        }
+        .d1,.d2,.d3,.d4 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        .d1,.d2,.d3 {
+            border-right: 3px solid gray;
+        }
+        .d1 {
+            left: 0;
+            width: 300px;
+            background-color: #DBDEE166;
         }
         .d2 {
-            box-sizing: border-box;
-            border-right: 2px inset black;
-            position: absolute;
             left: 300px;
-            top: 0;
-            width: calc(100vw - 900px);
-            height: 100vh;
-
+            right: 600px;
+            width: auto;
         }
-        .d2aa {
+        .d2-a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 100px;
-            box-sizing: border-box;
             border-bottom: 2px dashed gray;
         }
-        .d2bb {
-            overflow-y: scroll;
-            height: calc(100vh - 100px);
-            padding-left: 15px;
-        }
-        
-        .d3 {
-            width: 300px;
-            background-color: #EAEFF3;
-            box-sizing: border-box;
-            border-right: 2px solid black;
+        .d2-b {
             position: absolute;
-            right:300px;
-            top: 0;
-            height: 100vh;
+            left: 10px;
+            top: 120px;
+            right: 10px;
+            bottom: 10px;
+            overflow: auto;
+
+        }
+        .d3 {
+            right: 300px;
+            width: 300px;
+            background-color: #DBDEE166;
         }
         .d4 {
+            right: 0;
             width: 300px;
-            background-color: #EAEFF3;
-            position: absolute;
-            right:0;
-            top: 0;
-            height: 100vh;
+            background-color: #DBDEE166;
         }
     </style>
 </head>
@@ -83,11 +85,10 @@
             </ul>
         </div>
         <div class="d2">
-            
-            <div class="d2aa">
+            <div class="d2-a">
                 <h2>position</h2>
             </div>
-            <div class="d2bb">
+            <div class="d2-b">
                 The &lt;position> (or &lt;bg-position>) CSS data type denotes a two-dimensional coordinate used to set a location relative to an element box. It is used in the background-position and offset-anchor properties.<br><br>
                 The &lt;position> data type is specified with one or two keywords, with optional offsets.
                 <br><br>
@@ -107,6 +108,5 @@
             <h2>history</h2>
         </div>
     </div>
-
 </body>
 </html>
