@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        [class^=obj-] {
+            border: 3px solid orange;
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .obj-big img {
+            border: 2px solid black;
+            width: 300px;
+            height: 200px;
+            object-fit: contain;
+        }
+        .obj-mid img {
+            border: 2px solid black;
+            width: 300px;
+            height: 200px;
+            object-fit: scale-down;
+        }
+        .obj-small img {
+            border: 2px solid black;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .obj-icon img {
+            border: 2px solid black;
+            width: 100px;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .bg {
+            position: relative;
+            height: 900px;
+        }
+        .bg * {
+            box-sizing: border-box;
+        }
+        [class^=bgs-] {
+            background-repeat: no-repeat;
+            margin: auto;
+            border: 2px solid black;
+            width: 400px;
+            height: 300px;
+        }
+        .bgs-a {
+            background-image: url(https://i0.hdslb.com/bfs/bangumi/dc1fd7a5ae14aefff4e1b01fc9751ebcacccc4cf.jpg@450w_600h.webp);
+            background-size: cover;
+        }
+        .bgs-b {
+            background-image: url(https://i0.hdslb.com/bfs/bangumi/dc1fd7a5ae14aefff4e1b01fc9751ebcacccc4cf.jpg@450w_600h.webp);
+            /* 让背景图水平居中 */
+            background-position: 50%;
+            background-size: contain;
+        }
+        .bgs-c {
+            background-image: url(http://www.shehui.pku.edu.cn/upload/images/20166/201661413304434470.png);
+            position: absolute;
+            top: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            /* 让背景图水平、垂直居中 */
+            background-position: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="object-fit">
+        <p>图片属性 object-fit 实现居中（图片等比例缩放，不变形）：值为contain时，完全显示图片，空出来的地方“黑边”；值为cover时，填充满，超出部分被裁剪。</p>
+        <div class="obj-big">
+            <img src="http://i0.letvimg.com/lc06_isvrs/201609/30/09/41/28af2221-20ab-456a-9042-68e0e4e97b15.jpg" alt="">
+        </div>
+
+        <div class="obj-mid">
+        <img src="http://ife.baidu.com/2018/asset/common/img/3fb31f3e5af7e8d7.jpg" alt="">
+        </div>
+
+        <div class="obj-small">
+            <img src="http://i0.letvimg.com/lc06_isvrs/201609/30/09/41/28af2221-20ab-456a-9042-68e0e4e97b15.jpg" alt="">
+        </div>
+
+        <div class="obj-icon">
+            <img src="https://upload.jianshu.io/collections/images/300774/1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        </div>
+    </div>
+
+
+    <div class="bg">
+        <div class="bgs-a"></div>
+        <div class="bgs-b"></div>
+        <div class="bgs-c"></div>
+    </div>
+
+</body>
+</html>
