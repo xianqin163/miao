@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oald-block</title>
+    <style>
+        body {
+            margin: 0;
+            width: 100vw;
+        }
+        .d1,.d2,.d3,.d4 {
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .d1,.d2,.d3 {
+            border-right: 3px solid gray;
+        }
+        .d1,.d3,.d4 {
+            background-color: #c2c8ce66;
+            width: 300px;
+        }
+        h2 {
+            margin-top: 0;
+            margin-left: 10px;
+        }
+        .d2 {
+            margin-top: calc(-100vh);
+            margin-left: 300px;
+            margin-right: 600px;
+        }
+        .d3 {
+            margin-top: calc(-100vh);
+            margin-left: calc(100vw - 600px);
+            margin-right: 300px;
+        }
+        .d4 {
+            margin-left: calc(100vw - 300px);
+            margin-top: calc(-100vh);
+        }
+        .d2-a {
+            border-bottom: 2px dashed gray;
+            height: 100px;
+            box-sizing: border-box;
+        }
+        .d2-b {
+            font-size: 30px;
+            height: calc(100vh - 100px);
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <h2>OALD 7</h2>
+        <ul>Table of contents
+            <li>Lorem.</li>
+            <li>Illo.</li>
+            <li>Pariatur!</li>
+            <li>Esse!</li>
+            <li>Illum!</li>
+            <li>Ipsa!</li>
+            <li>Rem.</li>
+            <li>Quisquam?</li>
+            <li>Eveniet!</li>
+            <li>Syntax</li>
+            <li>Interpolation</li>
+            <li>Examples</li>
+            <li>Specifications</li>
+            <li>Browser compatibility</li>
+            <li>See also</li>
+        </ul>
+    </div>
+    <div class="d2">
+        
+        <div class="d2-a">
+            <h2>position</h2>
+        </div>
+        <div class="d2-b">
+            The &lt;position> (or &lt;bg-position>) CSS data type denotes a two-dimensional coordinate used to set a location relative to an element box. It is used in the background-position and offset-anchor properties.<br><br>
+            The &lt;position> data type is specified with one or two keywords, with optional offsets.
+            <br><br>
+            The keyword values are center, top, right, bottom, and left. Each keyword represents either anedge of the element's box or the center line between two edges. Depending on the context, centerrepresents either the center between the left and right edges, or the center between the top andbottom edges.
+            <br><br>
+            If specified, an offset can be either a relative &lt;percentage> value or an absolute &lt;length>value. Positive values are offset towards the right or the bottom, whichever is appropriate.Negative values are offset in the opposite directions.
+            <br><br>
+            If only a single offset value is specified, it defines the x-coordinate, with the value for theother axis defaulting to center.<br>
+            <br><br>
+            When animated, a point's abscissa and ordinate values are interpolated independently. However, because the speed of the interpolation is determined by a single timing function for both coordinates, the point will move in a straight line.<br>
+        </div>
+    </div>
+    <div class="d3">
+        <h2>vocabulary</h2>
+    </div>
+    <div class="d4">
+        <h2>history</h2>
+    </div>
+</body>
+</html>
