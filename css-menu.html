@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-menu</title>
+    <style>
+        .nav {
+            background-color: #323233;
+        }
+        [class^=menu-] {
+            display: inline-block;
+            position: relative;
+            font-size: 20px;
+        }
+        .content {
+            display: none;
+            position: absolute;
+            background-color: #252526;
+            color: #CCCCCC;
+            width: 200px;
+            padding: 4px;
+        }
+        .btn:hover {
+            background-color: #5c5c5d;
+            color: #cfc9c9;
+        }
+        [class^=menu-]:hover .content {
+            display: block;
+        }
+        .btn {
+            margin: 0;
+            /* width: 40px;
+            height: 30px; */
+            background-color: #323233;
+            color: #8E8E8E;
+            padding: 4px 10px;
+        }
+        .content span {
+            display: block;
+            padding: 4px 5px;
+            
+        }
+        .content span:hover {
+            background-color: #007ACC;
+            color: white;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="menu-first">
+            <div class="btn">文件</div>
+            <div class="content">
+                <span>新建文件</span>
+                <span>打开文件</span>
+                <hr>
+                <span>另存为</span>
+                <span>关闭文件</span>
+            </div>
+        </div>
+        <div class="menu-second">
+            <div class="btn">编辑</div>
+            <div class="content">
+                <span>撤销</span>
+                <span>恢复</span>
+                <hr>
+                <span>剪切</span>
+                <span>复制</span>
+                <span>粘贴</span>
+                <hr>
+                <span>查找</span>
+                <span>替换</span>
+            </div>
+        </div>
+        <div class="menu-third">
+            <div class="btn">查看</div>
+            <div class="content">
+                <span>命令面板</span>
+                <span>资源管理器</span>
+                <span>调试</span>
+                <span>运行</span>
+                <span>终端</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
