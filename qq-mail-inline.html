@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mail-inline</title>
+    <style>
+        body,html {
+            margin: 0;
+            font-size: 0px;
+        }
+        .main * {
+            font-size: 20px;
+        }
+        .logo{
+            display: inline-block;
+            background-color: #99CCCC;
+            height: 80px;
+            line-height: 80px;
+            width: 100%;
+            padding-left: 30px;
+        }
+        .mainMenu {
+            display: inline-block;
+            background-color: #FFCCCC;
+            width: 200px;
+            height: calc(100vh - 80px);
+        }
+        .mainContent {
+            background-color: #FFCC99;
+            display: inline-block;
+            vertical-align: top;
+            height: calc(100vh - 80px);
+            width: calc(100% - 200px);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="logo">Mail——QQ邮箱——mail.qq.com</div>
+    <div class="mainMenu">
+        <div class="side">
+            <ul>
+                <li>写信</li>
+                <li>收信</li>
+                <li>通讯录</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainContent">
+        <div class="tent">
+            <p>邮箱推荐</p>
+        <p>上午好，XXX。<br>
+            邮件：X封未读邮件，X封未读邮件，X封未读邮件，X封未读邮件</p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
