@@ -28,10 +28,18 @@
             height: inherit;
         }
         .mainContent {
-            float: left;
             background-color: #F4AF73;
-            width: calc(100% - 200px);
             height: inherit;
+
+            /* 宽度自动占满剩下的空间 */
+                /* 方法一 */
+            margin-left: 200px;
+            padding: 20px;
+            /* 加padding，解决外边距重叠的问题 */
+
+                /* 方法二 */
+            /* 也可以触发它的BFC让它自动变窄以避开浮动元素 */
+            /* overflow: hidden; */
         }
     </style>
 </head>
