@@ -6,20 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {margin: 0;}
+        html,body {
+            margin: 0;
+            height: 100%;
+        }
         .d1, .d3, .d4 {
             width: 300px;
-            height: 100vh;
+            height: 100%;
             background-color: #c2c8ce66;
-            float: left;
         }
+        .d1 {float: left;}
+        .d3, .d4 {float: right;}
+        /* d1左浮动，d3和d4右浮动，需要改变d2与d3和d4的顺序才能实现d2自适应， */
+        /* 所以在<body>里的DOM顺序是1432。 */
         .d2 {
-            float: left;
-            max-width: calc(100% - 900px);
-            height: 100vh;
+            overflow: hidden;
+            height: 100%;
         }
         .d1,.d2,.d3 {
-            box-sizing: border-box;
+            box-sizing: border-box; 
             border-right: 3px solid gray;
         }
         .d2-a {
@@ -30,7 +35,11 @@
         .d2-b {
             overflow: auto;
             font-size: 30px;
-            height: calc(100vh - 120px);
+            height: calc(100% - 100px);
+        }
+        h2{
+            margin-top: 0;
+            padding: 20px;
         }
     </style>
 </head>
@@ -55,6 +64,13 @@
             <li>See also</li>
         </ul>
     </div>
+    <div class="d4">
+        <h2>history</h2>
+    </div>
+    <div class="d3">
+        <h2>vocabulary</h2>
+    </div>
+    
     <div class="d2">
         <div class="d2-a">
             <h2>position</h2>
@@ -71,12 +87,6 @@
             <br><br>
             When animated, a point's abscissa and ordinate values are interpolated independently. However, because the speed of the interpolation is determined by a single timing function for both coordinates, the point will move in a straight line.<br>
         </div>
-    </div>
-    <div class="d3">
-        <h2>vocabulary</h2>
-    </div>
-    <div class="d4">
-        <h2>history</h2>
     </div>
 </body>
 </html>
