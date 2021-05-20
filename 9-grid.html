@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        .a td {
+            width: 50px;
+            height: 50px;
+            /* line-height: 30px; */
+            text-align: center;
+            border: 5px solid orange;
+            /* float: left; */
+            position: relative;
+        }
+        /* 鼠标滑到td上时，让td的伪元素边框高亮 */
+        .a td:hover::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 5px solid #bf6adb;
+            /* 让td里的字可以选择中，设置指针事件为none，仅让::before用来装饰 */
+            pointer-events: none;
+        }
+
+        /* 先让所有行tr有border，然后让所有列col有border-left左边框，之后hover的时候，再给td加不同色的边框border */
+        .b tr {
+            border: 5px solid #7FA9F8;
+        }
+        .b td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+        }
+        .b col{
+            border-left: 5px solid #7FA9F8;
+        }
+        .b td:hover {
+            border: 5px solid #db6a79;
+        }
+
+        .z{
+            border-collapse: collapse;
+        }
+        .z td{
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border:5px ridge #FDDC9A;
+        }
+        /* 有浮雕效果的边框样式ridge优先级低于solid */
+        .z td:hover{
+            border: 5px solid #F88D7F;
+        }
+    </style>
+</head>
+<body>
+    <table class="b">
+        <col>
+        <col>
+        <col>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+    <hr>
+    <table class="a">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+    <hr>
+    
+    <table class="z">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+</body>
+</html>
