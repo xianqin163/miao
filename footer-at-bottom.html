@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>footer</title>
     <style>
-        html,body{
-            width: 100%;
+        html {
+            height: 100%;
         }
-        html,body,ul,li{
+
+        html,body {
+            width: 100%;
+            margin: 0;
+        }
+
+        ul,li {
             margin: 0;
             padding: 0;
             list-style-type: none;
         }
-        a{text-decoration: none;}
-        .container{
-            width: 1170px;
-            margin:0 auto;
-            padding: 0;
+
+        a {
+            text-decoration: none;
         }
-        
+
+        .container {
+            width: 1170px;
+            margin: 0 auto;
+        }
+
         /* header */
 
-        header{
+        header {
             height: 50px;
             background-color: #f8f8f8;
             border-top: 1px solid #e7e7e7;
@@ -33,34 +43,47 @@
             width: 100%;
             min-width: 1170px;
         }
-        header ul{
+
+        header>div>ul {
             width: 100%;
             height: 50px;
         }
-        header ul li {
+
+        header>div>ul>li {
             float: left;
             height: 100%;
         }
-        header ul li a {
+
+        header>div>ul>li a {
             display: block;
             padding: 15px;
             color: #777;
             font-size: 14px;
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
-        header ul li a:hover {
+
+        header>div>ul>li a:hover {
             color: #333;
         }
-        header ul li:first-of-type a{
+
+        header>div>ul>li:first-child a {
             font-size: 18px;
             margin-left: -15px;
         }
 
-/* 选项后的小三角 */
-        header > .container > ul > li:last-child a {
+        /* 页面 Home 选项 默认被选中 */
+        header>div>ul>li.selected {
+            background-color: #e7e7e7;
+        }
+
+
+        /* 选项后的小三角 */
+        .last>a {
+            width: auto;
             position: relative;
         }
-        header > .container > ul > li:last-child a::after{
+
+        .last>a::after {
             content: "";
             display: block;
             position: absolute;
@@ -72,30 +95,61 @@
             top: 50%;
         }
 
-/* 页面 Home 选项 默认被选中 */
-        header ul li.selected{
-            background-color: #e7e7e7;
+        /* 多级菜单 */
+        header>div>ul>li.last a {
+            padding-right: 15px;
+            position: relative;
         }
 
+        header>div>ul>li.last>a::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 1px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 4px solid transparent;
+            border-top-color: #5e5e5e;
+        }
 
+        header>div>ul>li.last {
+            position: relative;
+        }
 
-        .dropdown{
-            /* width: 200px;
+        header>div>ul>li.last>ul.dropdown {
+            position: absolute;
+            left: 15px;
+            top: 100%;
             box-sizing: border-box;
-            padding: 5px 0; */
+            width: 200px;
+            box-shadow: 0 0 3px 3px #999;
+            background-color: #fff;
+            padding: 8px 0;
+            z-index: 1000;
+            height: auto;
             display: none;
         }
-        .dropdown li {
-            float: left;
-        }
-        li:hover .dropdown{
+
+        header>div>ul>li.last:hover .dropdown {
             display: block;
         }
 
+        header>div>ul>li.last>ul.dropdown a {
+            padding: 3px 15px;
+            color: #333;
+        }
+
+        header>div>ul>li.last>ul.dropdown>li:hover {
+            background: #e5e5e5;
+        }
 
 
 
         /* section */
+        section {
+            padding: 60px 15px;
+        }
 
         section h1 {
             font: 500 36px 'Helvetica Neue', Arial, sans-serif;
@@ -103,37 +157,37 @@
             border-bottom: 1px solid #eee;
             margin-bottom: 25px;
         }
+
         section p {
             font: 21px 'Helvetica Neue', Arial, sans-serif;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         /* footer */
 
-        body{
+        body {
+            min-height: 100%;
+            /* 最重要的一步 (要给html{height:100%}，不能同时给body{height:100%;}) */
+            display: flow-root;
+            margin: 0;
             position: relative;
-            height: 100vh;
-/* 最重要的一步 */
-            min-height: 390px;
+            padding-bottom: 2em;
+            box-sizing: border-box;
         }
 
-        footer{
+        footer {
             width: 100%;
             height: 60px;
-            background-color: #F5F5F5;
-            /* padding-top: 25px; */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        footer{
+            background-color: #F0F0F0;
             color: #777;
             font: 14px "Helvetica Neue", Arial, sans-serif;
+            position: absolute;
+            bottom: 0;
         }
-
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -142,7 +196,7 @@
                 <li class="selected"><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Dropdown</a>
+                <li class="last"><a href="#">Dropdown</a>
                     <ul class="dropdown">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
@@ -156,19 +210,21 @@
             </ul>
         </div>
     </header>
-    <div class="container">
-        <section>
+    <section>
+        <div class="container">
             <h1> Sticky footer with fixed navbar </h1>
 
-            <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with padding-top: 60px; on the body > .container.</p>
-    
+            <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and
+                CSS. A fixed navbar has been added with padding-top: 60px; on the body > .container.</p>
+
             <p>Back to the default sticky footer minus the navbar.</p>
-        </section>
-    </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <p>Place sticky footer content here.</p>
         </div>
     </footer>
 </body>
+
 </html>
