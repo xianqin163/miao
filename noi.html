@@ -20,9 +20,9 @@
     var a = Number(prompt('请输入整数a（-10000 < a,b,c < 10000）'))
     var b = Number(prompt('请输入整数b（-10000 < a,b,c < 10000）'))
     var c = Number(prompt('请输入整数c（-10000 < a,b,c < 10000）'))
-    var noi = (a + b) / c
-
-    console.log(noi.toFixed(0)) 
+    var ni = Math.floor((a + b) / c)
+// 整除运算 Math.floor向下取整
+    console.log(ni) 
 </script>
 
 <script id="ch0103/04" type="text/javascript">
@@ -100,9 +100,7 @@
     var b = Number(prompt('请输入正数b的值'))
     var r = a % b
     console.log(r)
-
-
-//  小数尾部没有多余的0 
+// 小数尾部没有多余的0 
 </script>
 
 <script id="ch0103/12" type="text/javascript">
@@ -118,11 +116,11 @@
     var a = r % 10
     var b = (r % 100 - a) / 10
     var c = (r - r % 100) / 100
-
-    var d = a * 100 + b * 10 + c
+    
+    var d = a.toString() + b.toString() + c.toString()
 
     console.log(d)
-//  如何保留整数前的0 
+//  如何保留整数前的0：把数字转换为字符串
 </script>
 
 <script id="ch0103/14" type="text/javascript">
@@ -180,14 +178,11 @@
     var l13 = Math.sqrt((x3-x1)*(x3-x1)+(y3-y1)*(y3-y1))
     var l23 = Math.sqrt((x3-x2)*(x3-x2)+(y3-y2)*(y3-y1))
 
-    if(l12 > l13 && l12 > l23){
-        var s = l13 * l23 / 2
-    }else if(l13 > l12 && l13 > l23){
-        var s = l12 * l23 / 2
-    }
-    else {
-        var s = l12 * l13 / 2
-    }
+// 海伦公式：利用三角形三条边的边长直接求面积
+    var p = (l12 + l13 + l23) / 2
+
+    var s = Math.sqrt(p*(p-l12)*(p-l13)*(p-l23))
+    
     console.log(s.toFixed(2))
 
 </script>
