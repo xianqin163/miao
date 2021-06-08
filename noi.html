@@ -1,0 +1,216 @@
+
+<script id="ch0103/01" type="text/javascript">
+  var a = Number(prompt('请输入整数A'))
+  var b = Number(prompt('请输入整数B'))
+  console.log(a + b)
+
+// x.toFixed(2) 保留数值x小数点后两位
+</script>
+
+<script id="ch0103/02" type="text/javascript">
+    var a = Number(prompt('请输入整数a（-10000 < a,b,c < 10000）'))
+    var b = Number(prompt('请输入整数b（-10000 < a,b,c < 10000）'))
+    var c = Number(prompt('请输入整数c（-10000 < a,b,c < 10000）'))
+
+    console.log((a + b) * c)
+</script>
+
+<script id="ch0103/03" type="text/javascript">
+    var a = Number(prompt('请输入整数a（-10000 < a,b,c < 10000）'))
+    var b = Number(prompt('请输入整数b（-10000 < a,b,c < 10000）'))
+    var c = Number(prompt('请输入整数c（-10000 < a,b,c < 10000）'))
+    var noi = (a + b) / c
+
+    console.log(noi.toFixed(noi)) 
+</script>
+
+<script id="ch0103/04" type="text/javascript">
+    var a = Number(prompt('请输入被除数a'))
+    var b = Number(prompt('请输入除数b'))
+
+    var quotient = a / b
+    var remainder = a % b
+
+    console.log(quotient.toFixed(0))
+    console.log(remainder)
+</script>
+
+<script id="ch0103/05" type="text/javascript">
+    var a = Number(prompt('请输入整数a（a不为0）'))
+    var b = Number(prompt('请输入整数b（b不为0）'))
+    var fl = a / b
+    
+    console.log(fl.toFixed(9))
+//  变量名不能为float 
+</script>
+
+<script id="ch0103/06" type="text/javascript">
+    var a = Number(prompt('请输入确诊数'))
+    var b = Number(prompt('请输入死亡数'))
+    var s = b / a * 100
+    
+    console.log(s.toFixed(3) + "%")
+</script>
+
+<script id="ch0103/07" type="text/javascript">
+    var x = Number(prompt('请输入实数x（x是绝对值不超过100的双精度浮点数）'))
+
+    var a = Number(prompt('请输入实数a（a是绝对值不超过100的双精度浮点数）'))
+    var b = Number(prompt('请输入实数b（b是绝对值不超过100的双精度浮点数）'))
+    var c = Number(prompt('请输入实数c（c是绝对值不超过100的双精度浮点数）'))
+    var d = Number(prompt('请输入实数d（d是绝对值不超过100的双精度浮点数）'))
+
+    var fx = a * x * x * x + b * x * x + c * x + d
+    
+    console.log(fx.toFixed(7))
+</script>
+
+<script id="ch0103/08" type="text/javascript">
+    var f = Number(prompt('请输入华氏温度F（f>=-459.67）'))
+
+    var c = 5 * ( f - 32 ) / 9
+    
+    console.log(c.toFixed(5))
+</script>
+
+<script id="ch0103/09" type="text/javascript">
+    var r = Number(prompt('请输入圆的半径r（0<r<=10000）'))
+    var pi = 3.14159
+    
+    var d = 2 * r
+    var l = 2 * pi * r
+    var s = pi * r * r
+    
+    console.log(d.toFixed(4))
+    console.log(l.toFixed(4))
+    console.log(s.toFixed(4))
+</script>
+
+<script id="ch0103/10" type="text/javascript">
+    var r1 = Number(prompt('请输入电阻r1的阻值'))
+    var r2 = Number(prompt('请输入电阻r2的阻值'))
+    var k = 1 / ( 1 / r1 + 1 / r2 )
+    console.log(k.toFixed(2))
+    
+</script>
+
+<script id="ch0103/11" type="text/javascript">
+    var a = Number(prompt('请输入正数a的值'))
+    var b = Number(prompt('请输入正数b的值'))
+    var r = a % b
+    console.log(r)
+
+//  小数尾部没有多余的0 
+</script>
+
+<script id="ch0103/12" type="text/javascript">
+    var r = Number(prompt('请输入球的半径r（r为不超过100的非负实数）'))
+    var pi = 3.14
+    var v = 4 / 3 * pi * r * r * r
+
+    console.log(v.toFixed(2))
+</script>
+
+<script id="ch0103/13" type="text/javascript">
+    var r = Number(prompt('请输入一个三位数'))
+    var a = r % 10
+    var b = (r % 100 - a) / 10
+    var c = (r - r % 100) / 100
+
+    var d = a * 100 + b * 10 + c
+
+    console.log(d)
+//  如何保留整数前的0 
+</script>
+
+<script id="ch0103/14" type="text/javascript">
+
+    var pi = 3.14159
+    var h = Number(prompt('小圆桶的深h（单位：厘米）'))
+    var r = Number(prompt('小圆桶的底面半径r（单位：厘米）'))
+    
+    var cask = pi * r * r * h
+
+    var num = 20000 / cask
+
+    if(20000 % cask > 0)
+    {
+        num = num + 1;
+    }
+    console.log(num.toFixed(0))
+    
+</script>
+
+<script id="ch0103/15" type="text/javascript">
+    var n = Number(prompt('整数n'))
+    var x = Number(prompt('整数x'))
+    var y = Number(prompt('整数y'))
+    
+    if ( y <= n * x ){
+        var p = y / x
+        if (y%x > 0){
+            p = p+1
+        }
+        var m = n - p.toFixed(0);
+        console.log(m);
+    }
+</script>
+
+<script id="ch0103/16" type="text/javascript">
+    var xa = Number(prompt('请输入A点的横坐标Xa（其绝对值不超过10000）'))
+    var ya = Number(prompt('请输入A点的纵坐标Ya（其绝对值不超过10000）'))
+    var xb = Number(prompt('请输入B点的横坐标Xb（其绝对值不超过10000）'))
+    var yb = Number(prompt('请输入B点的纵坐标Yb（其绝对值不超过10000）'))
+    
+    var s = Math.sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya))
+    console.log(s.toFixed(3))
+</script>
+
+<script id="ch0103/17" type="text/javascript">
+    var x1 = Number(prompt('请输入三角形顶点1的横坐标X1'))
+    var y1 = Number(prompt('请输入三角形顶点1的纵坐标Y1'))
+    var x2 = Number(prompt('请输入三角形顶点2的横坐标X2'))
+    var y2 = Number(prompt('请输入三角形顶点2的纵坐标Y2'))
+    var x3 = Number(prompt('请输入三角形顶点3的横坐标X3'))
+    var y3 = Number(prompt('请输入三角形顶点3的纵坐标Y3'))
+    
+    var l12 = Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))
+    var l13 = Math.sqrt((x3-x1)*(x3-x1)+(y3-y1)*(y3-y1))
+    var l23 = Math.sqrt((x3-x2)*(x3-x2)+(y3-y2)*(y3-y1))
+
+    if(l12 > l13 && l12 > l23){
+        var s = l13 * l23 / 2
+    }else if(l13 > l12 && l13 > l23){
+        var s = l12 * l23 / 2
+    }
+    else {
+        var s = l12 * l13 / 2
+    }
+    console.log(s.toFixed(2))
+
+</script>
+
+<script id="ch0103/18" type="text/javascript">
+    var a1 = Number(prompt('请输入等差数列的第一项a1（-100 <= a1 <= 100）'))
+    var a2 = Number(prompt('请输入等差数列的第二项a2（-100 <= a2 <= 100）'))
+    var n = Number(prompt('请输入n（0 < n <= 1000）'))
+    
+    var an = a1 + (n - 1) * (a2 - a1)
+    
+    console.log(an)
+</script>
+
+<script id="ch0103/19" type="text/javascript">
+    var A = Number(prompt('请输入正整数A（1 <= A <= 50000）'))
+    var B = Number(prompt('请输入正整数B（1 <= B <= 50000）'))
+    
+    var S = A * B
+    
+    console.log(S)
+</script>
+
+<script id="ch0103/20" type="text/javascript">
+    var n = Number(prompt('请输入非负整数n（0 <= n < 31）'))
+    var m = 2 ** n
+    console.log(m)
+</script>
