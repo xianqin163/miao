@@ -316,11 +316,10 @@
     if ( n % 7 == 0 )
         console.log('7')
     if (n % 3 != 0 && n % 5 != 0 && n % 7 != 0)
-        console.log(n)
+        console.log('n')
 </script>
 
-// ----------------------------------
-<script  id="ch0104/09.2" type="不要运行">
+<!-- <script  id="ch0104/09.2" type="不要运行">
 
         var a = Number(prompt())
 
@@ -341,7 +340,7 @@
         } else {
           console.log('n')
         }
-</script>
+</script> -->
 
 <script  id="ch0104/10" type="不要运行">
     var ch = Number(prompt('请输入语文成绩ch'))
@@ -468,14 +467,29 @@
     }
 </script>
 
-<script  id="ch0104/18" type="不要运行">
+<script  id="ch0104/18" type="text/javascript">
     var x = Number(prompt('横坐标x'))
     var y = Number(prompt('纵坐标y'))
 
-    if ((x >= -1 && x =< 1)&&(y >= -1 && y =< 1))
+    if ((x >= -1 && x <= 1)&&(y >= -1 && y <= 1)){
         console.log('yes')
-    else 
+    }
+    else {
         console.log('no')
+    }
+    
+    // if (x >= -1 && x <= 1){
+    //     if (y >= -1 && y <= 1){
+    //         console.log('yes')
+    //     }
+    //     else {
+    //         console.log('no')
+    //     }
+    // }
+    // else {
+    //     console.log('no')
+    // }
+    
 </script>
 
 <script  id="ch0104/19" type="不要运行">
@@ -520,7 +534,7 @@
     }else {
         var m = (-b) / (2*a)
         var n = Math.sqrt(4 * a * c - b * b) / (2 * a)
-        var x1 = String(m.toFixed(5)) + '+'+ String(n.toFixed(5)) +'i'
+        var x1 = String(m.toFixed(5)) + '+'+ String(n.toFixed(5)) +'i' + ';'
         var x2 = String(m.toFixed(5)) + '-' + String(n.toFixed(5)) +'i'
     console.log('x1=' + x1)
     console.log('x2=' + x2)
