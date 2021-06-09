@@ -317,8 +317,10 @@
         console.log('7')
     if (n % 3 != 0 && n % 5 != 0 && n % 7 != 0)
         console.log(n)
+</script>
 
 // ----------------------------------
+<script  id="ch0104/09.2" type="不要运行">
 
         var a = Number(prompt())
 
@@ -470,7 +472,7 @@
     var x = Number(prompt('横坐标x'))
     var y = Number(prompt('纵坐标y'))
 
-    if ((x > -1 && x < 1)&&(y > -1 && y < 1))
+    if ((x >= -1 && x =< 1)&&(y >= -1 && y =< 1))
         console.log('yes')
     else 
         console.log('no')
@@ -506,22 +508,22 @@
     if (delta == 0){
         var x1 = (-b) / (2 * a)
         var x2 = x1
-        console.log(x1)
-        console.log(x2)
+        console.log('x1=' + x1)
+        console.log('x2=' + x2)
     }else if (delta > 0){
         var sd = Math.sqrt(delta)
 
         var x1 = (-b + sd) / (2 * a)
         var x2 = (-b - sd) / (2 * a)
-        console.log(x1)
-        console.log(x2)
+        console.log('x1=' + x1)
+        console.log('x2=' + x2)
     }else {
         var m = (-b) / (2*a)
         var n = Math.sqrt(4 * a * c - b * b) / (2 * a)
         var x1 = String(m.toFixed(5)) + '+'+ String(n.toFixed(5)) +'i'
         var x2 = String(m.toFixed(5)) + '-' + String(n.toFixed(5)) +'i'
-    console.log(x1)
-    console.log(x2)
+    console.log('x1=' + x1)
+    console.log('x2=' + x2)
     }
     
 </script>
