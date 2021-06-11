@@ -684,11 +684,21 @@
     var sum = 0
     for (;m<=n;m=m+1){
         if (m%2==1){
-            sum = sum + m
+            sum += m
         }
     }
     console.log(sum)
 </script>
+
+<script id="不引用第三个中间变量 把m和n的值交换">
+    var m = 4
+    var n = 3
+    n = m + n
+    m = n - m
+    n = n - m
+// 用加减法或乘除法实现 如果两个数相加或相乘的结果超出了数据类型的范围，则会产生溢出，eg：C语言中int整型最多能表示32位二进制数，要是相加或相乘得到一个33位的二进制，则超出了整型能表示的范围
+</script>
+
 
 <script id="ch0105/10" type="xxx">
     var m = Number(prompt('请输入正整数m（0 < m < n < 1000）'))
@@ -775,6 +785,7 @@
     var N = Number(prompt("请输入第一年年薪N（10<=N<=50）"))
     var K = Number(prompt("请输入房价增长率百分之K（1<=K<=20）"))
     var price = 200
+    // 初始房价是200万
     for(var t = 1; t <= 20; t=t+1){
         var wages = N * t
         if (wages >= price){
@@ -789,30 +800,191 @@
     }
 </script>
 
-<script id="ch0105/17" type="text/javascript">
+<script id="ch0105/16.2" type="xxx">
     debugger
+
+    if (!){}
+
+
+
 </script>
 
-<script id="ch0105/18" type="text/javascript">
-    debugger
+
+<script id="ch0105/17" type="xxx">
+    var k = Number(prompt("请输入菲波那契数列的个数k（1 <= k <= 46）"))
+    var a1 = 1;
+    var a2 = 1;
+    // 数列的第一个和第二个数都为1
+    if(k == 1){
+        var f = a1;
+    }
+    if(k == 2){
+        var f = a2;
+    }
+    // 数列接下来的每个数都是前面两个数之和
+    if(k > 2){
+        for(var i = 3;i <= k; i++){
+            var f = a1 + a2
+            a1 = a2
+            a2 = f
+        }
+    }
+    console.log(f)
 </script>
 
-<script id="ch0105/19" type="text/javascript">
-    debugger
+<script id="ch0105/18" type="xxx">
+    var n = Number(prompt("请输入实验组数n"))
+    var a = Number(prompt("请输入鸡尾酒疗法临床实验的总病例数(小于等于10000)"))
+    var b = Number(prompt("请输入鸡尾酒疗法临床实验疗效有效的病例数"))
+    var x = Math.trunc(b / a * 100)
+    // 鸡尾酒疗法的有效率
+
+    for(var i = 2; i<=n; i++){
+        var c = Number(prompt("请输入第" + i + "组临床实验的总病例数(小于等于10000)"))
+        var d = Number(prompt("请输入第" + i + "组疗效有效的病例数"))
+        var y = Math.trunc(d / c * 100)
+    // n-1组不同改进疗法的有效率
+        
+        if((y - x) > 5){
+            console.log('better')
+        }else if((y - x) == 0){
+            console.log('same')
+        }else if((y - x) < 5){
+            console.log('worse')
+        }
+    }
 </script>
 
-<script id="ch0105/20" type="text/javascript">
-    debugger
+<script id="ch0105/19" type="xxx">
+    var n = +prompt('屋顶数目')
+    var total = 0
+    for (var i=1;i <=n;i++){
+        var x = +prompt('第' + i +'个屋顶相对于大本营的横坐标x')
+        var y = +prompt('第' + i +'个屋顶相对于大本营的纵坐标y')
+        var s = Math.sqrt(x*x + y*y)
+        var p = +prompt('屋顶上的人数')
+        total = total + Math.ceil(s / 50 + p + s / 50 + p * 0.5)
+    }
+    console.log(total)
+</script>
+
+<script id="ch0105/20" type="xxx">
+    var h = +prompt('球的初始高度h')
+    var count = 0
+    for(var i = 1;i <= 10; i++){
+        if (i==1){
+            count = h
+            // 球第一次落地仅经过了h米
+        }else {
+            count = count + h*2
+            // 球后面9次弹跳 相同的高度经过了上下两次
+        }
+        h = h/2 
+    }
+    console.log(count.toFixed(4))
+    console.log(h.toFixed(7))
+
+
 </script>
 
 <script id="ch0105/21" type="text/javascript">
-    debugger
+    // 角谷猜想：任意一个正整数 经处理后 得到1
+    var N = +prompt('输入一个正整数N(N <= 2,000,000)')
+    for (var i = 0;N != 1; i++){
+        if (N % 2 == 1){
+            var M = N * 3 + 1
+            console.log(N + ' * 3 + 1 = ' + M)
+            N = M
+        }
+        if (N % 2 == 0){
+            var M = N / 2
+            console.log(N + ' / 2 = ' + M)
+            N = M
+        }
+        if (N == 1){
+            console.log('End')
+        }
+    }
+    
 </script>
 
 <script id="ch0105/22" type="text/javascript">
     debugger
+
 </script>
 
 <script id="ch0105/23" type="text/javascript">
     debugger
 </script>
+
+<script id="ch0105/24" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/25" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/26" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/27" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/28" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/29" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/30" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/31" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/32" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/33" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/34" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/35" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/36" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/37" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/38" type="text/javascript">
+    debugger
+</script>
+
+<script id="ch0105/39" type="text/javascript">
+    debugger
+</script>
+
+
+
+<script id="FizzBuzz">
+
+
+</script>
+
