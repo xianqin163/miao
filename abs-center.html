@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: rgba(0,0,0,0.08);
+            box-shadow: inset 0 0 2px red;
+        }
+/* 单行文本 水平居中 垂直居中 */
+        .inline-block div {
+            display: inline-block;
+            width: 1800px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;   /* div内的文字水平居中 */
+            border: 1px solid gray;
+        }
+
+/* 块元素 水平居中 */
+        .multiple {
+            width: 800px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+/* 定位元素 水平居中 垂直居中*/
+        .father {
+            position: relative;
+            width: 800px;
+            height: 300px;
+        }
+        .son {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 已知宽高时，定位 + 左右margin 实现盒子水平垂直居中 */
+            xwidth: 500px;
+            xheight: 100px;
+            xmargin-left: -250px;
+            xmargin-top: -50px;
+
+            /* 未知宽高时，定位 + translate 实现盒子水平垂直居中 */
+            transform: translate(-50%, -50%);
+        }
+
+/* inline- 行内块元素 多行文本 垂直居中 */
+        .table{
+            display: table-cell;
+            vertical-align: middle;
+            width: 800px;
+            height: 200px;
+        }
+        .cell{
+            display: inline-block;
+            xvertical-align: middle;
+        }
+
+/* flex布局 水平居中 垂直居中*/
+        section.flex{
+            xwidth: 300px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div.box{
+            xalign-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="inline-block">
+        <div>单行文字（行内元素inline-block/inline-table/inline-flex【img也是行内元素】）水平居中text-align: center;单行文字垂直居中height: 300px;line-height: 300px;多行文本用span包住然后设display: inline-block; </div>
+    </div>
+    <div class="multiple">
+        <section>块元素实现 水平居中：给定块元素的高度height，然后让margin-left和margin-right值相等或都为auto。</section>
+    </div>
+
+    <div class="table">
+        <section class="cell">行内块元素 inline- 使用 表布局实现 垂直居中，给父元素使用display:table-cell; vertical-align: middle; 子元素使用display: inline-block; vertical-align: middle;</section>
+    </div>
+
+    <div class="father">
+        <section class="son">定位实现居中（position方法可用于所有元素）给父元素position:relative; 给子元素position:absolute; 上，左偏移值top:50%; left:50%;当父元素和子元素都给定宽度和高度时 设置 margin-top: height值一半的负值; margin-left: width值一半的负值; 当未改定宽高时，使用CSS3属性 位移（-50%）transform: translate(-50%, -50%);</section>
+    </div>
+    
+
+    <section class="flex">
+        <div class="box">flex布局实现 水平居中 垂直居中</div>
+    </section>
+</body>
+</html>
