@@ -887,18 +887,18 @@
 
 </script>
 
-<script id="ch0105/21" type="text/javascript">
+<script id="ch0105/21" type="xxx">
     // 角谷猜想：任意一个正整数 经处理后 得到1
     var N = +prompt('输入一个正整数N(N <= 2,000,000)')
     for (var i = 0;N != 1; i++){
         if (N % 2 == 1){
             var M = N * 3 + 1
-            console.log(N + ' * 3 + 1 = ' + M)
+            console.log(N + '*3+1=' + M)
             N = M
         }
         if (N % 2 == 0){
             var M = N / 2
-            console.log(N + ' / 2 = ' + M)
+            console.log(N + '/2=' + M)
             N = M
         }
         if (N == 1){
@@ -908,57 +908,195 @@
     
 </script>
 
-<script id="ch0105/22" type="text/javascript">
-    debugger
+<script id="ch0105/22" type="xxx">
+    var hand = 0 // 手里的钱
+    var stock = 0 // 存在妈妈那儿的钱
+    for(var i = 1; i <= 12; i++){
+        hand += 300
+        var budget = Number(prompt('请输入第' + i + '个月的预算'))
+        var hand = hand - budget // 本月手里减去预算还剩的钱 
+        if (hand < 0){
+            break
+        }else if (hand >= 100){
+            stock += hand - hand % 100
+            hand = hand % 100
+        }
+    }
+    if (hand < 0){
+        console.log(-i)
+    }else {
+        console.log(stock * (1 + 0.2) + hand)
+    }
+</script>
+
+<script id="ch0105/23" type="xxx">
+    var m = +prompt('每天开始时的药品总量m')
+    var n = +prompt('这一天取药的人数n（0 < n <= 100）')
+    var count = 0
+    for(var i = 1; i<=n;i++){
+        var k = +prompt('第'+i+'个病人希望取走的药品数量k')
+        if((m - k) >= 0){
+            count ++
+            m = m - k
+        }
+    }
+    console.log(n-count)
+</script>
+
+<script id="ch0105/24" type="xxx">
+    var n = +prompt('测量次数n（n < 100）')
+    var count = 0
+    for(var i = 1; i<=n;i++){
+        var a = Number(prompt('第'+i+'次测量的收缩压'))
+        var b = Number(prompt('第'+i+'次测量的舒张压'))
+        if ((90 < a) && (a < 140 )) {
+            if((60 <= b) && (b <= 90)){
+                count ++
+            }
+        }
+    }
+    console.log(count)
+</script>
+
+<script id="ch0105/25" type="xxx">
+    for(var i = 49;i <= 456;i++){
+        var a7 = i % 7
+        var b7 = (i - a7) / 7 % 7
+        var c7 = (i - a7 - b7 * 7) / (7 * 7) % 7
+
+        var a9 = i % 9
+        var b9 = (i - a9) / 9 % 9
+        var c9 = (i - a9 - b9 * 9) / (9 * 9) % 9
+
+        if((a7 == c9) && (b7 == b9) && (c7 == a9)){
+            console.log(i)
+            console.log(c7*100 +b7*10+a7)
+            console.log(c9*100 +b9*10+a9)
+        }
+    }
 
 </script>
 
-<script id="ch0105/23" type="text/javascript">
-    debugger
+<script id="ch0105/26" type="xxx">
+    var n = +prompt('四位数的个数')
+    var count = 0
+    for(var i = 1; i <= n; i++){
+        var num = Number(prompt('请输入第' + i + '个四位数'))
+        var a = num % 10 // 个位数
+        var b = (num - a) / 10 % 10 // 十位数
+        var c = (num - b*10 - a) / 100 % 10 // 百位数
+        var d = (num - c*100 - b*10 - a) / 1000 % 10 // 千位数
+        if ((a - d - c - b ) > 0){
+            count ++
+        }
+    }
+    console.log(count)
 </script>
 
-<script id="ch0105/24" type="text/javascript">
-    debugger
+<script id="ch0105/27" type="xxx">
+    var K = Number(prompt('请输入一个整数K（1<=K<=15）'))
+    var sn = 0
+    for(var i = 1; i<=15;i++){
+        sn = sn + 1 / i
+        if(sn > K){
+            console.log(i)
+            break
+        }
+    }
 </script>
 
-<script id="ch0105/25" type="text/javascript">
-    debugger
+<script id="ch0105/28" type="xx">
+    var n = Number(prompt('请输入在1到100000000之间的一个整数'))
+    do{
+        var digit = n % 10
+        console.log(digit)
+        n = (n - digit) / 10
+    }while(n > 10)
+    console.log(n)
 </script>
 
-<script id="ch0105/26" type="text/javascript">
+<script id="ch0105/29" type="不会做呀这个不会做">
     debugger
+    var N = Number(prompt('请输入在-100000000到100000000之间的一个整数N'))
+    if (N > 0){
+        // 判断N的位数
+        
+        var a = N % 10 // 个位数
+        var b = (N - a) / 10 % 10 // 十位数
+        var c = (N - b*10 - a) / 100 % 10 // 百位数
+        var d = (N - c*100 - b*10 - a) / 1000 % 10 // 千位数
+        // ……………………
+        
+        // 数字反转
+    }else {
+        // 负数反转
+    }
+
 </script>
 
-<script id="ch0105/27" type="text/javascript">
-    debugger
+<script id="ch0105/30" type="xxx">
+    var m = Number(prompt('请输入一个正整数m（1<m<100000）'))
+    var k = Number(prompt('请输入一个正整数k（1<k<5）'))
+    var count = 0
+    if(m % 19 == 0){
+        do{
+            var digit = m % 10
+            if(digit == 3){
+                count ++
+            }
+            m = (m - digit) / 10
+        }while(m >= 3)
+        if(count == k){
+            console.log('YES')
+        }else {
+            console.log('NO')
+        }
+    }
 </script>
 
-<script id="ch0105/28" type="text/javascript">
+<script id="ch0105/31" type="这题不会做 :(">
     debugger
+    var N = Number(prompt('假设有N盏灯(N为不大于5000的正整数)'))
+    var M = Number(prompt('有M个人(M为不大于N的正整数)'))
+
 </script>
 
-<script id="ch0105/29" type="text/javascript">
-    debugger
+<script id="ch0105/32" type="xxx">
+    var n = Number(prompt('请输入一个正整数n'))
+    var p = 1
+    var q = 2
+    var sum = 2
+    for(var i = 1;i < n;i++){
+        var a = q + p
+        var b = q
+        sum += a / b
+        q = a
+        p = b
+    }
+    console.log(sum.toFixed(4))
 </script>
 
-<script id="ch0105/30" type="text/javascript">
-    debugger
-</script>
-
-<script id="ch0105/31" type="text/javascript">
-    debugger
-</script>
-
-<script id="ch0105/32" type="text/javascript">
-    debugger
-</script>
-
-<script id="ch0105/33" type="text/javascript">
-    debugger
+<script id="ch0105/33" type="xxx">
+    var n = Number(prompt('请输入一个正整数n（1<=n<=1000）'))
+    var sn = 0
+    for(var i = 1; i<=n; i++){
+        if(i % 2 == 1){
+            sn = sn + 1/i
+        } else if(i % 2 == 0){
+            sn = sn - 1/i
+        }
+    }
+    console.log(sn.toFixed(4))
 </script>
 
 <script id="ch0105/34" type="text/javascript">
     debugger
+    var n = Number(prompt('请输入一个正整数n（1<n<12）'))
+    var jie = 1
+    for(var i = 1; i<=n; i++){
+        jie = jie * i
+    }
+
 </script>
 
 <script id="ch0105/35" type="text/javascript">
@@ -981,10 +1119,42 @@
     debugger
 </script>
 
+<script id="ch0105/40" type="text/javascript">
+    debugger
+</script>
 
 
-<script id="FizzBuzz">
+<script id="ch0105/41" type="text/javascript">
+    debugger
+</script>
 
+
+<script id="ch0105/42" type="text/javascript">
+    debugger
+</script>
+
+
+<script id="ch0105/43" type="text/javascript">
+    debugger
+</script>
+
+
+<script id="ch0105/44" type="text/javascript">
+    debugger
+</script>
+
+
+<script id="ch0105/45" type="x">
+    debugger
+    var n = Number(prompt(''))
+</script>
+
+<script id="ch2-1" type="xx">
+    debugger
+    var n = Number(prompt(''))
+</script>
+
+<script id="FizzBuzz" type="xx">
 
 </script>
 
