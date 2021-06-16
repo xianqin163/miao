@@ -1,3 +1,118 @@
+<script>
+    function sum(n){
+        var m = 0
+        for(var i = 1; i <= n; i++){
+            m += i
+        }
+        document.write(n + 'n以内所有数的和为：' + m )
+        return m
+    }
+    sum(50)
+</script>
+
+<script id="narcissistic" type="输入一个数，判断是否是水仙花数">
+// 所谓“水仙花数”是指一个3位数，其各位数字的立方和等于该数的本身。例如153就是一个水仙花数，因为153 = 1^3 + 5^3 + 3^3。
+    var n = Number(prompt())
+    var sum = 0
+    var m = n
+    do{
+        var digit = m % 10
+        sum = sum + digit * digit * digit
+        m = (m - digit) / 10
+    }while(m > 0)
+    if(sum == n){
+        console.log(n + '是水仙花数')
+    }else {
+        console.log(n + '不是水仙花数')
+    }
+    
+</script>
+
+<script id="narcissistics" type=": 输出10000以内的水仙花数">
+    for(var i = 100; i < 1000; i++){
+        var a = i % 10
+        var b = (i - a) / 10 % 10
+        var c = (i - a - b * 10) / 100
+        if(i == a*a*a+b*b*b+c*c*c){
+            console.log(i)
+        }
+    }
+</script>
+
+<script id="palindrom" type=": 判断一个数是否是回文数字">
+// 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+    var n = Number(prompt('请判断整数n是否为回文数'))
+    var m = n
+    var result = 0
+    do{
+        var digit = n % 10
+        result = result * 10 + digit
+        n = (n - digit) / 10
+    }while(n > 0)
+    if(result == m){
+        console.log(m + '是回文数')
+    }else {
+        console.log(m + '不是回文数')
+    }
+</script>
+
+<script id="weekday: 输入年份与月份，输出这个月的第一天是周几" type="?????">
+
+</script>
+
+<script id="complete-number: 判断一个数是否是完全数" type="?????">
+    // 完全数（Perfect number），又称完美数或完备数，是一些特殊的自然数。它所有的真因子（即除了自身以外的约数）的和（即因子函数），恰好等于它本身。如果一个数恰好等于它的因子之和，则称该数为“完全数”。
+    var n = Number(prompt('请判断整数n是否为完全数'))
+
+</script>
+
+<script id="complete-numbers: 输出1000以内的完全数" type="?????">
+
+</script>
+
+<script id="prime" type=": 判断一个数是否是素数">
+    var n = Number(prompt('请判断整数n是否为素数'))
+    if(n == 1 || n == 2 || n == 3 || n == 5 || n == 7){
+        console.log(n + '为素数')
+    }else if(n % 2 == 0 || n % 3 == 0 || n % 5 == 0 || n % 7 == 0){
+        console.log(n + '不是素数')
+    }else {
+        console.log(n + '为素数')
+    }
+</script>
+
+<script id="primes" type=": 输出1000以内的素数">
+    for(var i = 1; i<=1000; i++){
+        if((i == 1 || i == 2 || i == 3 || i == 5 || i == 7) || (i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0 && i % 7 !== 0)){
+            console.log(i)
+        }
+    }
+</script>
+
+<script id="gcd&lcm: 输入两个数，输出它们的最大公约数gcd和最小公倍数lcm" type="text/javascript">
+    debugger;
+    var m = Number(prompt())
+    var n = Number(prompt())
+
+
+</script>
+
+<script id="sqrt: 求一个数的平方根" type="text/javascript">
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script id="ch0103/01" type="不要运行">
   var a = Number(prompt('请输入整数A'))
   var b = Number(prompt('请输入整数B'))
@@ -1016,7 +1131,7 @@
 </script>
 
 <script id="ch0105/29" type="xxx">
-    var N = Number(prompt('请输入在-100000000到100000000之间的一个整数N'))
+    var n = Number(prompt('请输入在-100000000到100000000之间的一个整数N'))
     
     // 负号
     var sign = 1 
