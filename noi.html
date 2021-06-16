@@ -1015,22 +1015,23 @@
     console.log(n)
 </script>
 
-<script id="ch0105/29" type="不会做呀这个不会做">
-    debugger
+<script id="ch0105/29" type="xxx">
     var N = Number(prompt('请输入在-100000000到100000000之间的一个整数N'))
-    if (N > 0){
-        // 判断N的位数
-        
-        var a = N % 10 // 个位数
-        var b = (N - a) / 10 % 10 // 十位数
-        var c = (N - b*10 - a) / 100 % 10 // 百位数
-        var d = (N - c*100 - b*10 - a) / 1000 % 10 // 千位数
-        // ……………………
-        
-        // 数字反转
-    }else {
-        // 负数反转
+    
+    // 负号
+    var sign = 1 
+    if(n<0){
+        sign = -1
+        n = -n
     }
+    // 反转后的数字 result
+    var result = 0
+    while(n > 0){
+        var digit = n % 10
+        result = result * 10 + digit
+        n = (n - digit) / 10
+    }
+    console.log(sign * result)
 
 </script>
 
@@ -1046,6 +1047,7 @@
             }
             m = (m - digit) / 10
         }while(m >= 3)
+
         if(count == k){
             console.log('YES')
         }else {
@@ -1089,34 +1091,77 @@
     console.log(sn.toFixed(4))
 </script>
 
-<script id="ch0105/34" type="text/javascript">
-    debugger
+<script id="ch0105/34" type="xxx">
     var n = Number(prompt('请输入一个正整数n（1<n<12）'))
     var jie = 1
+    var sum = 0
     for(var i = 1; i<=n; i++){
         jie = jie * i
+        sum = sum + jie
     }
-
+    console.log(sum)
 </script>
 
-<script id="ch0105/35" type="text/javascript">
-    debugger
+<script id="ch0105/35" type="xxx">
+    var n = Number(prompt('请输入一个正整数n（1<n<12）'))
+    var jie = 1
+    var sum = 1
+    for(var i = 1; i<=n; i++){
+        jie = jie * i
+        sum = sum + 1 / jie
+    }
+    console.log(sum.toFixed(10))
 </script>
 
-<script id="ch0105/36" type="text/javascript">
-    debugger
+<script id="ch0105/36" type="xxx">
+    var x = Number(prompt('请输入多项式的x'))
+    var n = Number(prompt('请输入一个正整数n（n <= 1000000）'))
+    var m = 1
+    var sum = 1
+    for(var i = 1; i <= n;i++){
+        m = m * x
+        sum = sum + m
+    }
+    console.log(sum.toFixed(2))
 </script>
 
-<script id="ch0105/37" type="text/javascript">
-    debugger
+<script id="ch0105/37" type="感觉题目不完整">
+    var M = Number(prompt('雇佣兵的体力最大值M'))
+    var N = Number(prompt('战斗力N'))
+    var X = Number(prompt('拥有X个能量元素'))
+    for(var i = 1; i<=X; i++){
+    // 每个能量元素能恢复一个战斗期的体力值
+        X = X -1
+        for(var j = 1; j <= M; j++){
+            N = N + (n - n % M) / M
+            if
+        }
+    }
 </script>
 
-<script id="ch0105/38" type="text/javascript">
-    debugger
+<script id="ch0105/38" type="xxx">
+    var n = Number(prompt('多项式的最高次幂n（0 <= n <= 100）'))
+    for(var i = n; i >= 0; i--){
+        var k = Number(prompt('幂次为'+ i +'的项的系数'))
+        if(i != 0){
+            console.log(k * i)
+        }
+    }
 </script>
 
 <script id="ch0105/39" type="text/javascript">
     debugger
+    var n = Number(prompt('请输入一个正整数n（n < 100）'))
+    var count = 0
+    if(n % 7 !== 0){
+        for(var i = 1; i < 3; i++){
+            if(n % 10 !== 7){
+                count = count + 1
+                n = (n - n % 10) / 10
+            }
+        }
+    }
+    
 </script>
 
 <script id="ch0105/40" type="text/javascript">
