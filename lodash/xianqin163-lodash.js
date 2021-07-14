@@ -48,7 +48,7 @@ var xianqin163 = {
         return array
     },
     fill: function(array, value, start=0, end=array.length){
-        if(start == undefined)
+        if(start == undefined){}
     },
     unique: function (){
 
@@ -57,7 +57,7 @@ var xianqin163 = {
 
     },
     // flattenDeep/Depth: function (){    },
-    gruopBy: function (){
+    groupBy: function (){
 
 
     },
@@ -126,10 +126,7 @@ var xianqin163 = {
 
     }, sumBy: function (){
 
-    },
+    }
     
     
-
-
-
 }
