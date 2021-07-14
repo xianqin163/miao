@@ -6,7 +6,7 @@ var xianqin163 = {
         }else{
             for(var i = 0;i < array.length; i += size){
                 result.push( array.slice(i,i+size) )
-                // Array.slice(start,end)方法用于从Array数组中返回下标start到end的一个新的数组，不包括end
+                // Array.slice(start,end) 用于从Array数组中返回下标start到end的一个新数组,不包括end.
             }
         }
         return result
@@ -20,6 +20,35 @@ var xianqin163 = {
             }
         }
         return arr
+    },
+    difference: function (array,values){
+        var result = []
+        for(var i = 0; i < array.length; i++){
+            for(var j = 0; j < array.length; j++){
+                if(values[i] == array[j]){
+                    continue
+                }else{
+                    result.push(array[j])
+                }
+            }
+        }
+        return result
+    },
+    drop: function (array, n = 1){
+        for(var i = 1; i <= n; i++){
+            array.shift(array[i])
+        }
+        return array
+    },
+    dropRight: function (array, n = 1){
+        var l = array.length
+        for(var i = l; i > l - n; i--){
+            array.pop(array[i])
+        }
+        return array
+    },
+    fill: function(array, value, start=0, end=array.length){
+        if(start == undefined)
     },
     unique: function (){
 
@@ -75,7 +104,29 @@ var xianqin163 = {
     isEqual: function (){
 
     },
-    reverse, countBy,reduceRight,shuffle,isNaN, isNull, isNil, isUndefined, toArray, sum, sumBy
+    reverse: function (){
+
+    },countBy: function (){
+
+    },reduceRight: function (){
+
+    },shuffle: function (){
+
+    },isNaN: function (){
+
+    }, isNull: function (){
+
+    }, isNil: function (){
+
+    }, isUndefined: function (){
+
+    }, toArray: function (){
+
+    }, sum: function (){
+
+    }, sumBy: function (){
+
+    },
     
     
 
