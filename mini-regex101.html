@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini-regex101</title>
+    <style>
+        /* textarea是行内块元素 */
+        input[type="text"], textarea,pre#result {
+            width: 600px;
+            font-size: 20px;
+            line-height: 1.3;
+        }
+        label{
+            font-family: consolas;  /* 编程用字体 */
+            cursor: pointer;    /* 鼠标样式，小手 */
+        }
+        label input{
+            cursor: pointer; /*该属性不继承*/
+        }
+        em{
+            background-color: #8bb6ff;
+            font-style: normal;  /* 字体样式 */
+        }
+        em:nth-of-type(even) {
+            background-color: #d2e1ff;
+        }
+        em:empty {
+            /* 断言位置匹配 */
+            /* border-right: 2px dashed #DC00FF;
+            margin-right: -2px; */
+            outline: 1px dashed #DB26E8;
+            /* outline区别于border，不占据空间，不影响布局 */
+
+            background-color: transparent;
+        }
+        pre{
+            white-space: pre-wrap;  
+            /* 空白符的处理：连续的空白符会被保留。在遇到换行符或者<br>元素会换行 */
+            border: 1px solid black;
+            padding: 2px;
+            margin: 0;
+            overflow-y: scroll;
+        }
+        h3{margin-top: 0.3em;}
+        p#regError {
+            height: 1em;
+            color: #FF0000;
+        }
+        section {
+            position: relative;
+        }
+        textarea, pre {
+            height: 300px;
+        }
+        section textarea{
+            background-color: transparent;
+            position: absolute;
+            display: block;
+            z-index: 8;
+        }
+        section pre{
+            position: absolute;
+            top: 0;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div style="padding-top: 0.5em;">
+        <label><input type="checkbox" onclick="run()" id="ignoreCase">i</label>
+        <label><input type="checkbox" onclick="run()" id="global" checked >g</label>
+        <label><input type="checkbox" onclick="run()" id="multiline">m</label>
+        <!-- input的id属性相当于创建了全局变量 -->
+
+        <h3>请输入正则表达式：</h3>
+        <input type="text" id="reg" name="regular expression" onkeydown="run()" value="fo." spellcheck="false">
+        <!-- onkeydown="run()" 替换为 oninput="run()" -->
+        <p id="regError" style="margin-top: 0.5em;"></p>
+
+    </div>
+    <!-- onkeyup：在当前元素上释放键盘按键时会触发keyup事件.
+        onkeydown:键盘按下时触发，从键盘按下到松开释放有延时，所以键入信息卡顿 -->
+
+    <h3>请输入待匹配文本（并显示匹配结果）：</h3>
+    <section>
+        <!-- spellcheck 拼写检查，onscroll="synScrollPos()"  -->
+        <textarea name="test string" id="str" cols="30" rows="10" onkeydown="run()" spellcheck="false" onscroll="setScroll()">   foobar 
+for 
+form 
+information 
+follow footer 
+font format;lhoh hh,bcasfoaco FOBHKH ffocklj,
+    An explanation of your regex will be automatically generated as you ty.
+    Detailed match information will be displayed here automatically.
+
+    Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
+    一个元素的 scrollTop 值是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量。当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为0。
+    // 获得滚动的像素数
+    var  intElemScrollTop = someElement.scrollTop;
+    // 设置滚动的距离
+    element.scrollTop = intValue;
+
+    oninput属性，它处理input，select和 textarea 元素上的 input (en-US) 事件。
+        </textarea>
+
+        <pre id="result" scroll-></pre> 
+    </section>
+    
+    <script>
+        function setScroll(){
+            var scrollTop = str.scrollTop
+            // result.style.top = -str.scrollTop + 'px'   //设置相对定位的top元素的滚动
+            result.scrollTop = scrollTop
+        }
+        function run(){
+            // console.log('Jenny:Run Forest Gump.')   //《阿甘》
+            var regSource = reg.value
+            // input:text里没有内容时，<em>为空，匹配到的是空字符串时的处理
+            if(regSource == ''){
+                result.innerHTML = ''
+                regError.innerHTML = 'Please input any regex expression.'
+                returns
+            }
+            var flags = getFlags()
+            try{
+                var re = new RegExp(regSource, flags)
+                regError.innerHTML = ''
+            } catch(e) {    //如果构造正则出现错误，显示错误信息
+                regError.innerHTML = e.message
+                resultHTML = ''
+                return
+            }
+            var txt = str.value
+            var match
+            if(re.global){
+                var resultHTML = ''
+                var lastIndex = re.lastIndex    //exec下一次匹配的起始位置
+                while(match = re.exec(txt)){
+                    resultHTML += txt.slice(lastIndex, match.index)  //匹配结果的开始位置
+                    resultHTML += '<em>' + match[0] + '</em>'  //拼接字符串
+                    lastIndex = re.lastIndex
+                    
+                    if(match[0] == ""){
+                        re.lastIndex++
+                    }
+                }
+                resultHTML += txt.slice(lastIndex)
+                result.innerHTML = resultHTML 
+                // Element.innerHTML 属性设置或获取HTML语法表示的元素的后代。
+            }else{  // no global选项
+                var resultHTML = ''
+                match = re.exec(txt)
+                resultHTML += txt.slice(0, match.index)  //匹配结果的开始位置
+                resultHTML += '<em>' + match[0] + '</em>'  //拼接字符串
+                resultHTML += txt.slice(match.index + match[0].length)
+                result.innerHTML = resultHTML 
+
+            }
+            
+        }
+        run() //页面一打开就就运行一次
+        function getFlags(){
+            var flags = ""
+            if(ignoreCase.checked){  flags += 'i'  }
+            if(global.checked){  flags += 'g'  }
+            if(multiline.checked){  flags += 'm'  }
+            return flags
+        }
+    </script>
+</body>
+</html>
