@@ -53,6 +53,8 @@
         }
         textarea, pre {
             height: 300px;
+            word-break: break-all;
+            /* 规定自动换行的处理方式：break-all允许在单词内换行 */
         }
         section textarea{
             background-color: transparent;
@@ -75,8 +77,8 @@
         <!-- input的id属性相当于创建了全局变量 -->
 
         <h3>请输入正则表达式：</h3>
-        <input type="text" id="reg" name="regular expression" onkeydown="run()" value="fo." spellcheck="false">
-        <!-- onkeydown="run()" 替换为 oninput="run()" -->
+        <input type="text" id="reg" name="regular expression" oninput="run()" value="fo." spellcheck="false">
+        <!-- onkeydown="run()"读到的是旧的值 替换为 oninput="run()"实时读到结果，oninput事件在用户输入时触发，在input或textarea元素的值发生变化时立即触发， -->
         <p id="regError" style="margin-top: 0.5em;"></p>
 
     </div>
@@ -117,6 +119,7 @@ font format;lhoh hh,bcasfoaco FOBHKH ffocklj,
         function run(){
             // console.log('Jenny:Run Forest Gump.')   //《阿甘》
             var regSource = reg.value
+            console.log(regSource)
             // input:text里没有内容时，<em>为空，匹配到的是空字符串时的处理
             if(regSource == ''){
                 result.innerHTML = ''
