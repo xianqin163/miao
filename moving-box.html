@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving-box</title>
+    <style>
+        div {
+            width: 66px;height: 26px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="aaa" style="top: 100px;left: 100px;background-color: lightcoral;">上下左右</div>
+    <br><br><br><hr>
+    <br><br><br><hr>
+    <br><br><br><hr>
+    <div id="bbb" style="top: 180px;left: 180px;background-color: lightgreen;">WSAD</div>
+    <script>
+        
+        'use strict'
+        var aaa = document.getElementById('aaa')
+        var vx = 0
+        var vy = 0
+        var leftPress = false
+        var rightPress = false
+        var upPress = false
+        var downPress = false
+
+        document.addEventListener('keydown', function(e){
+            console.log(e)
+            if(e.key == 'ArrowLeft'){  //左方向键
+                vx = -1
+                leftPress = true
+            }
+            if(e.key == 'ArrowRight'){  //右方向键
+                vx = 1
+                rightPress = true
+            }
+            if(e.key == 'ArrowUp'){  //上方向键
+                vy = -1
+                upPress = true
+            }
+            if(e.key == 'ArrowDown'){  //下方向键
+                vy = 1
+                downPress = true
+            }
+        })
+        document.addEventListener('keyup', function(e){
+            console.log(e)
+            if(e.key == 'ArrowLeft'){
+                leftPress = false
+                if(rightPress){
+                    vx = 1
+                } else {
+                    vx = 0
+                }
+            }
+            if(e.key == 'ArrowRight'){
+                rightPress = false
+                if(leftPress){
+                    vx = -1
+                } else {
+                    vx = 0
+                }
+            }
+            if(e.key == 'ArrowUp'){
+                upPress = false
+                if(downPress){
+                    vy = 1
+                } else {
+                    vy = 0
+                }
+            }
+            if(e.key == 'ArrowDown'){
+                downPress = false
+                if(upPress){
+                    vy = -1
+                }else{
+                    vy = 0
+                }
+            }
+        })
+        requestAnimationFrame(function move(){
+            aaa.style.left = parseInt(aaa.style.left) + vx + 'px';
+            aaa.style.top = parseInt(aaa.style.top) + vy + 'px';
+            requestAnimationFrame(move)
+        })
+        
+        var bbb = document.getElementById('bbb')
+        var x = 0
+        var y = 0
+        var rightEnd = false
+        var leftEnd = false
+        var upEnd = false
+        var downEnd = false
+
+        document.addEventListener('keydown',function(e){
+            if(e.keyCode == 65){  //A
+                leftEnd = true
+                x = -1
+            }
+            if(e.keyCode == 68){  //D
+                rightEnd = true
+                x = 1
+            }
+            if(e.keyCode == 87){  //W
+                upEnd = true
+                y = -1
+            }
+            if(e.keyCode == 83){  //S
+                downEnd = true
+                y = 1
+            }
+        })
+        document.addEventListener('keyup',function(e){
+            if(e.keyCode == 65){
+                leftEnd = false
+                if(rightEnd){
+                    x = 1
+                } else {
+                    x = 0
+                }
+            }
+            if(e.keyCode == 68){
+                rightEnd = false
+                if(leftEnd){
+                    x = 1
+                } else {
+                    x = 0
+                }
+            }
+            if(e.keyCode == 87){
+                upEnd = false
+                if(downEnd){
+                    y = 1
+                } else {
+                    y = 0
+                }
+            }
+            if(e.keyCode == 83){
+                downEnd = false
+                if(upEnd){
+                    y = -1
+                } else {
+                    y = 0
+                }
+            }
+        })
+        
+        requestAnimationFrame(function moving(){
+            bbb.style.left = parseInt(bbb.style.left) + x + 'px'
+            bbb.style.top = parseInt(bbb.style.top) + y + 'px'
+            requestAnimationFrame(moving)
+        })
+        // requestAnimationFrame(moving)
+    </script>
+</body>
+</html>
