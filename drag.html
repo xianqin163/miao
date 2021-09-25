@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>拖拽</title>
     <style>
+        section {
+            height: 185px;
+        }
         .draggable {
             width: 100px;
             height: 100px;
+            border-radius: 50px;
             background-color: plum;
+            opacity: 0.55;
             position: absolute;
             user-select: none;  
             /* 页面内容不可选 */
@@ -18,14 +23,22 @@
 </head>
 <body>
     <!-- 窗口拖拽效果， -->
-    <div class="draggable" style="left: 20px;top: 20px;background-color: #99CCCC;"></div>
-    <div class="draggable" style="left: 40px;top: 40px;background-color: #6699CC;"></div>
-    <div class="draggable" style="left: 60px;top: 60px;background-color: #CCCCFF;"></div>
-    <div class="draggable" style="left: 80px;top: 80px;background-color: #FFCCCC;"></div>
+    <section>
+        色料的三原色：品红（magenta）、黄（yellow）、青（cyan）
+        <div class="draggable" style="left: 25px;top: 75px;background-color: magenta;"></div>
+        <div class="draggable" style="left: 60px;top: 35px;background-color: yellow;"></div>
+        <div class="draggable" style="left: 95px;top: 75px;background-color: cyan;"></div>
+    </section>
+    <section>
+        色光的三原色：红（red）、绿（green）、蓝（blue）
+        <div class="draggable" style="left: 25px;top: 260px;background-color: red;"></div>
+        <div class="draggable" style="left: 60px;top: 220px;background-color: yellow;"></div>
+        <div class="draggable" style="left: 95px;top: 260px;background-color: blue;"></div>
+    </section>
 
     <script>
         // var draggable = document.querySelector('.draggable')
-        var maxZIndex = 5
+        var maxZIndex = 7
         // 移动距离的计算 易错！
         document.addEventListener('mousedown', e => {
             // 如果鼠标点击的目标元素不是draggable，跳出事件
