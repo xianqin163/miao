@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        .draggable {
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+            position: absolute;
+            user-select: none;  
+            /* 页面内容不可选 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 窗口拖拽效果， -->
+    <div class="draggable" style="left: 20px;top: 20px;background-color: #99CCCC;"></div>
+    <div class="draggable" style="left: 40px;top: 40px;background-color: #6699CC;"></div>
+    <div class="draggable" style="left: 60px;top: 60px;background-color: #CCCCFF;"></div>
+    <div class="draggable" style="left: 80px;top: 80px;background-color: #FFCCCC;"></div>
+
+    <script>
+        // var draggable = document.querySelector('.draggable')
+        var maxZIndex = 5
+        // 移动距离的计算 易错！
+        document.addEventListener('mousedown', e => {
+            // 如果鼠标点击的目标元素不是draggable，跳出事件
+            if(!e.target.classList.contains('draggable')){
+                return
+            }
+            var drag = e.target
+            drag.style.zIndex = maxZIndex++
+
+            // 记录拖拽前鼠标的位置和元素的位置
+            var start_x = e.clientX
+            var start_y = e.clientY
+            var start_left = parseFloat(drag.style.left)
+            var start_top = parseFloat(drag.style.top)
+
+            // 给全局绑定mousemove事件不会造成卡顿，如果是给draggable元素绑定mousemove事件，当鼠标仅在draggable元素上才能拖拽，而不是点击到松开鼠标都能实现拖拽。
+            window.addEventListener('mousemove', function move(event) {
+                //没有鼠标键被按下时，解绑事件。
+                if (event.which == 0 && event.buttons == 0) {  
+                    window.removeEventListener('mousemove', move)
+                    console.log('remove mousemove')
+                    return
+                    // 用return来更新解绑？？？？？？？？？？？？？？？、
+                }
+                // 计算鼠标移动的距离，也就是元素移动的距离
+                var current_x = event.clientX
+                var current_y = event.clientY
+                var dx = current_x - start_x
+                var dy = current_y - start_y
+
+                var left = start_left + dx
+                var top = start_top + dy
+
+                // 实现不从视口移出的效果，即不显示滚动条。
+                // 当视窗靠近时自动粘合，即边缘磁吸效果
+                if(left < 20) left = 0
+                if(top < 20) top = 0
+                if(left > window.innerWidth - drag.offsetWidth - 50) left = window.innerWidth - drag.offsetWidth
+                if(top > window.innerHeight - drag.offsetHeight - 50) top = window.innerHeight - drag.offsetHeight
+
+                drag.style.left = left +'px'
+                drag.style.top = top +'px'
+            })
+        })
+    </script>
+</body>
+
+</html>
