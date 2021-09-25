@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画图工具</title>
+    <style>
+        svg {
+            border: 4px solid #778899;
+        }
+    </style>
+</head>
+<body>
+    工具：
+    <button onclick="tool='brush'">画笔</button>
+    <button onclick="tool='line'">一</button>
+    <button onclick="tool='rect'">口</button>
+    <button onclick="tool='circle'">〇</button>
+    <button onclick="tool='ellipse'">椭圆</button>
+
+    颜色：
+    <input type="color" id="colorInput">
+
+    线条粗细：
+    <input type="range" min="1" max="20" value="5" id="widthInput">
+    <span class="line-width-value">5</span>
+    <br>
+    <br>
+    <svg width="600" height="500"></svg>
+
+
+    <script>
+        var widthValue = document.querySelector('#widthInput')
+        var widthSpan = document.querySelector('.line-width-value')
+        widthValue.addEventListener('input', e => {
+            widthSpan.textContent = widthValue.value
+        })
+
+        let svg = document.querySelector('svg')
+        let tool = 'brush'
+
+        document.addEventListener('mousedown', e => {
+            if (tool == 'brush') {
+                let pos = relativePos(svg)
+
+                let polyline = document.createElementNS("http://www.w3.org/2000/svg", 'polyline')
+                svg.append(polyline)
+
+                polyline.setAttribute('fill', 'none')
+                polyline.setAttribute('stroke', colorInput.value)
+                polyline.setAttribute('stroke-width',widthInput.value)
+                polyline.setAttribute('stroke-linecap','round')
+                polyline.setAttribute('stroke-linejoin','round')
+
+                let points = `${pos.x},${pos.y} `
+                polyline.setAttribute('points', points)
+
+                function drawLine() {
+                    let pos = relativePos(svg)
+                    points += `${pos.x},${pos.y} `
+                    polyline.setAttribute('points', points)
+                }
+
+                addEventListener('mousemove', drawLine)
+                addEventListener('mouseup',function once() {
+                    removeEventListener('mousemove', drawLine)
+                })
+            }
+            if (tool == 'line') {
+                let straightLine = document.createElementNS("http://www.w3.org/2000/svg", "line")
+
+                let pos = relativePos(svg)
+                
+                straightLine.setAttribute('x1', pos.x)
+                straightLine.setAttribute('y1', pos.y)
+
+                function drawStraightLine(e) {
+                    let lastPos = relativePos(svg)
+
+                    straightLine.setAttribute('x2', lastPos.x)
+                    straightLine.setAttribute('y2', lastPos.y)
+
+                    svg.append(straightLine)
+                }
+
+                straightLine.setAttribute('stroke', colorInput.value)
+                straightLine.setAttribute('stroke-width',widthInput.value)
+                straightLine.setAttribute('stroke-linecap','round')
+
+                document.addEventListener('mousemove', drawStraightLine);
+                document.addEventListener('mouseup', function once(){
+                    document.removeEventListener('mousemove', drawStraightLine)
+                    pos = null
+                })
+            }
+
+        // 矩形 不显示 ？？？？？？？？？？？？？？？？？？？？？
+            if (tool == 'rect') {
+                let rect = document.createElementNS("http://http://www.w3.org/2000/svg", "rect")
+                svg.append(rect)
+                rect.setAttribute('fill','none')
+                rect.setAttribute('stroke', colorInput.value)
+                rect.setAttribute('stroke-width', widthInput.value)
+
+                let startPos = relativePos(svg)
+
+                rect.setAttribute('x', startPos.x)
+                rect.setAttribute('y', startPos.y)
+
+                function drawRect(e) {
+                    let lastPos = relativePos(svg)
+                    let width = Math.abs(lastPos.x - startPos.x)
+                    let height = Math.abs(lastPos.y - startPos.y)
+
+                    rect.setAttribute('width', width)
+                    rect.setAttribute('height', height)
+                }
+                
+                document.addEventListener('mousemove', drawRect)
+                document.addEventListener('mouseup', function once() {
+                    document.removeEventListener('mousemove', drawRect)
+                    // pos = null
+                })
+            }
+
+            if (tool == 'circle') {
+                let circle = document.createElementNS('http://www.w3.org/2000/svg','circle')
+                svg.append(circle)
+                circle.setAttribute('fill', 'none')
+                circle.setAttribute('stroke', colorInput.value)
+                circle.setAttribute('stroke-width',widthInput.value)
+
+                let startPos = relativePos(svg)
+
+                function drawCircle() {
+                    let currentPos = relativePos(svg)
+                    let cx = (startPos.x + currentPos.x) / 2
+                    let cy = (startPos.y + currentPos.y) / 2
+                    circle.setAttribute('cx', cx)
+                    circle.setAttribute('cy', cy)
+                    // 圆心的x，y坐标
+                    let r = Math.abs(startPos.x - currentPos.x) / 2
+                    circle.setAttribute('r', r)
+                }
+                document.addEventListener('mousemove',drawCircle)
+                document.addEventListener('mouseup',function once() {
+                    document.removeEventListener('mousemove',drawCircle)
+                })
+            }
+            if (tool == 'ellipse') {
+                let ellipse = document.createElementNS('http://www.w3.org/2000/svg','ellipse')
+                svg.append(ellipse)
+                ellipse.setAttribute('fill', 'none')
+                ellipse.setAttribute('stroke', colorInput.value)
+                ellipse.setAttribute('stroke-width',widthInput.value)
+
+                let startPos = relativePos(svg)
+
+                function drawEllipse() {
+                    let currentPos = relativePos(svg)
+                    let cx = (startPos.x + currentPos.x) / 2
+                    let cy = (startPos.y + currentPos.y) / 2
+                    ellipse.setAttribute('cx', cx)
+                    ellipse.setAttribute('cy', cy)
+
+                    let rx = Math.abs(currentPos.x - startPos.x) / 2
+                    let ry = Math.abs(currentPos.y - startPos.y) / 2
+                    ellipse.setAttribute('rx', rx)
+                    ellipse.setAttribute('ry', ry)
+                    // 圆心的x，y坐标
+                    let r = Math.abs(startPos.x - currentPos.x) / 2
+                    ellipse.setAttribute('r', r)
+                }
+                document.addEventListener('mousemove',drawEllipse)
+                document.addEventListener('mouseup',function once() {
+                    document.removeEventListener('mousemove',drawEllipse)
+                })
+            }
+            
+
+            // if (tool == 'polygon') {}
+        })
+
+        document.addEventListener('keydown', e => {
+            if(e.ctrlKey && e.key == "z") {
+                if(svg.lastElementChild) {
+                    svg.removeChild(svg.lastElementChild)
+                } 
+            }
+        })
+
+
+        // 获取鼠标点击事件在元素内的位置
+        function relativePos(element){
+            let rect = element.getBoundingClientRect()  
+            return {
+                x: Math.floor(event.clientX - rect.x),
+                y: Math.floor(event.clientY - rect.y)
+            }
+        }
+    </script>
+</body>
+</html>
