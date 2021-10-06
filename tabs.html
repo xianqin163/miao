@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs选项卡</title>
+    <style>
+        button {
+            width: 50px;
+            height: 30px;
+            border: none;
+        }
+        .con {
+            padding: 10px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #dadada;
+            /* background-color: silver; */
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-panel">
+        <div class="con" data-tabname="one">Tab one</div>
+        <div class="con" data-tabname="two">Tab two</div>
+        <div class="con" data-tabname="three">Tab three</div>
+    </div>
+    <script>
+        function asTabs(node){
+            let tabs = Array.from(node.children)
+            let buttons = []
+            for(let tab of tabs.reverse()) {
+                // console.log(tab)
+                let button = document.createElement('button')
+                buttons.push(button)
+
+                button.textContent = tab.dataset.tabname
+                tab.style.display = 'none'
+
+                button.addEventListener('click', e => {
+                    tabs.forEach(it => it.style.display = 'none')
+                    tab.style.display = 'block'
+                    buttons.forEach(it => it.style.background = '')
+                    button.style.background = 'silver'
+                })
+                node.prepend(button)
+                // Element.prepend 方法可以在父节点的第一个子节点之前插入一系列Node对象
+            }
+            node.firstElementChild.click()
+            // 让第一个子节点的按钮默认已被点击
+        }
+        asTabs(document.querySelector(".tab-panel"));
+
+        // 派发事件dispatchEvent
+    </script>
+</body>
+</html>
