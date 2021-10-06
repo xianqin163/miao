@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三味真火 - 鼠标指针样式</title>
+    <style>
+        span {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: orange;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span style="left: 0; top: 0;"></span>
+        <span style="left: 0; top: 0;"></span>
+        <span style="left: 0; top: 0;"></span>
+        <span style="left: 0; top: 0;"></span>
+        <span style="left: 0; top: 0;"></span>
+    </div>
+
+    <script>
+        var fires = document.querySelectorAll('span')
+        console.log(fires)
+        var mx = -99
+        var my = -99
+        var r = 20
+
+        // 鼠标位置
+        window.addEventListener('mousemove', e => {
+            mx = e.clientX
+            my = e.clientY
+        })
+        
+        function animate(time) {
+            var angle = time * 0.002
+            for(var fire of fires) {
+                fire.style.left = Math.cos(angle) * r + mx + 'px'
+                fire.style.top = Math.sin(angle) * r + my + 'px'
+
+                angle += Math.PI * 2 / fires.length
+            }
+
+
+            requestAnimationFrame(animate)
+        }
+        requestAnimationFrame(animate)
+    </script>
+</body>
+</html>
