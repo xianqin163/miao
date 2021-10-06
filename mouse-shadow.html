@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标幻影 指针轨迹</title>
+    <style>
+        .mouse-shadow {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background-color: teal;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- 鼠标采样率 帧 -->
+    <script>
+        addEventListener('mousemove', e => {
+            console.log('move')
+            var span = document.createElement('span')
+            span.classList.add('mouse-shadow')
+
+            span.style.left = e.clientX + 'px'
+            span.style.top = e.clientY + 'px'
+
+            document.body.append(span)
+
+            setTimeout(() => {
+                document.body.removeChild(span)
+            }, 16*8)
+        })
+
+        // var x = 0
+        // var y = 0
+        // addEventListener('mousemove', e => {
+        //     x = e.clientX
+        //     y = e.clientY
+        // })
+        // var stack = []
+        // function getSpan() {
+        //     if(stack.length) {
+        //         return stack.pop()
+        //     } else {
+        //         return document.createElement('span')
+        //     }
+        // }
+        // requestAnimationFrame(function animate(time) {
+        //     // var span = document.createElement('span')  //避免重复增删span元素
+        //     var span = getSpan()
+        //     span.classList.add('mouse-shadow')
+
+        //     span.style.left = x + 'px'
+        //     span.style.top = y + 'px'
+
+        //     document.body.append(span)
+        //     setTimeout(() => {
+        //         document.body.removeChild(span)
+        //         stack.push(span)
+        //     }, 16*8)
+        //     // 最多出现8个，每个间隔16毫秒
+        //     requestAnimationFrame(animate)
+        // })
+        
+        
+    </script>
+</body>
+</html>
