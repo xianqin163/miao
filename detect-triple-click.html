@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标三击效果</title>
+    <style>
+        div {
+            width: 100px; 
+            height: 100px;
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+    /*
+        var last1 = 0
+        var last2 = 0
+        var last3 = 0
+
+        window.addEventListener('click', e => {
+            console.log('click')
+            var time = Date.now()
+            if(time - last2 < 400 && last2 - last1 > 400) {
+                console.log('triple click')
+            }
+            last1 = last2
+            last2 = last3
+            last3 = time
+        })
+    */
+    /*
+        var last = 0
+        var count = 0  //监测到连续点击的次数
+        window.addEventListener('click', e => {
+            var time = Date.now()
+            if (time - last < 200) {
+                count++
+            }
+            if (count == 3) {
+                console.log('triple click')
+            }
+            last = time
+        })
+    */
+        var div = document.querySelector('div')
+        var dblChecked = false
+        document.addEventListener('dblclick', e => {
+            dblChecked = true
+            div.style.backgroundColor = 'darkgray'
+            div.textContent = 'double-click'
+            console.log(e.detail, 'double-click')
+            setTimeout(() => {
+                dblChecked = false
+            }, 300)
+        })
+        document.addEventListener('click', e => {
+            if(dblChecked) {
+                div.style.backgroundColor = 'dimgray'
+                div.textContent = ' triple-click'
+                console.log(e.detail, 'triple-click')
+            } else {
+                div.style.backgroundColor = 'whitesmoke'
+                div.textContent = 'click'
+                console.log(e.detail, 'click')
+            }
+            console.log(e.detail, e)
+            // e.detail连续单击的次数
+        })
+
+
+
+        // 单击锁定
+        // 双击速度
+    </script>
+</body>
+</html>
